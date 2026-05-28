@@ -1,0 +1,81 @@
+{
+  "posts": [
+    {
+      "title": "rty",
+      "id": "JooBeyKemv0"
+    },
+    {
+      "title": "rtyrty",
+      "id": "KttPtnc"
+    },
+    {
+      "title": "456456",
+      "id": "yP9HPcV"
+    },
+    {
+      "id": "uhXNIOM",
+      "title": "56756766666666666666"
+    },
+    {
+      "title": "5555",
+      "id": "gSs2idC"
+    }
+  ],
+  "cats": [
+    {
+      "id": "019e6057-90f0-7e02-89c2-23e09ddd6300",
+      "name": "Ginger",
+      "age": 6,
+      "photo": "/images/cats/ginger.png"
+    },
+    {
+      "id": "019e6057-90f0-7e02-89c2-23e09ddd6301",
+      "name": "Fluffy",
+      "age": 8,
+      "photo": "/images/cats/fluffy.png"
+    },
+    {
+      "id": "019e6057-90f0-7e02-89c2-23e09ddd6302",
+      "name": "Gucci",
+      "age": 14,
+      "photo": "/images/cats/gucci.png"
+    },
+    {
+      "id": "019e6057-90f0-7e02-89c2-23e09ddd6303",
+      "name": "Teady",
+      "age": 13,
+      "photo": "/images/cats/teddy.png"
+    }
+  ],
+  "weather": [
+    {
+      "id": "68e25218-050d-41ce-9f5c-faab7ff3a48b",
+      "city": "Limassol",
+      "photo": "/images/weather/rain-sun1.png",
+      "temperature": 23,
+      "isWindy": true
+    },
+    {
+      "id": "d71f4fbf-e6e8-4486-ad1f-633a14b74957",
+      "city": "Paphos",
+      "photo": "/images/weather/cloudy1.png",
+      "temperature": 19,
+      "isWindy": true
+    },
+    {
+      "id": "eaac4aed-7f22-4cae-9e03-1685d7263c0d",
+      "city": "Larnaka",
+      "photo": "/images/weather/sunny1.png",
+      "temperature": 24,
+      "isWindy": false
+    },
+    {
+      "id": "e22ec50d-ec39-4f06-870a-841075709bf5",
+      "city": "Nicosia",
+      "photo": "/images/weather/heavy-rain1.png",
+      "temperature": 20,
+      "isWindy": false
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}

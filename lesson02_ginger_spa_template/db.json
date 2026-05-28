@@ -1,0 +1,25 @@
+{
+  "posts": [
+    {
+      "title": "rty",
+      "id": "JooBeyKemv0"
+    },
+    {
+      "title": "rtyrty",
+      "id": "KttPtnc"
+    },
+    {
+      "title": "456456",
+      "id": "yP9HPcV"
+    },
+    {
+      "id": "uhXNIOM",
+      "title": "56756766666666666666"
+    },
+    {
+      "title": "5555",
+      "id": "gSs2idC"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}

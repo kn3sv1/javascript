@@ -1,0 +1,13 @@
+{
+  "posts": [
+    {
+      "title": "This BMW is awesome!",
+      "id": "fntshZbn71k"
+    },
+    {
+      "id": "1j6F9VDXcpM",
+      "title": "Very nice color bright green"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}
