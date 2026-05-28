@@ -21,6 +21,38 @@
       "id": "gSs2idC"
     }
   ],
+  "doctors": [
+    {
+      "id": "019e6057-90f0-7e02-89c2-23e09ddd6300",
+      "name": "Dr. Meredith Grey",
+      "profession": "General Surgery",
+      "photo" : "/images/doctors/meredith.png"
+    },
+        {
+      "id": "019e6057-90f0-7e02-89c2-23e09ddd6401",
+      "name": "Dr. Miranda Bailey",
+      "profession": "General Surgery",
+      "photo" : "/images/doctors/miranda.png"
+    },
+        {
+      "id": "019e6057-90f0-7e02-89c2-23e09ddd6402",
+      "name": "Dr. Derek Shepherd",
+      "profession": "Neurosurgery",
+      "photo" : "/images/doctors/derek.png"
+    },
+        {
+      "id": "019e6057-90f0-7e02-89c2-23e09ddd6403",
+      "name": "Dr. Cristina Yang",
+      "profession": "Cardiothoracic Surgery",
+      "photo" : "/images/doctors/cristina.png"
+    },
+        {
+      "id": "019e6057-90f0-7e02-89c2-23e09ddd6404",
+      "name": "Dr. Richard Webber",
+      "profession": "General Surgery",
+      "photo" : "/images/doctors/richard.png"
+    }        
+  ],
   "cats": [
     {
       "id": "019e6057-90f0-7e02-89c2-23e09ddd6300",

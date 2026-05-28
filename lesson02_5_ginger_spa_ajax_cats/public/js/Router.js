@@ -1,4 +1,5 @@
 import { CatController } from "./controller/CatController.js";
+import { DoctorController } from "./controller/DoctorController.js";
 import { WeatherController } from "./controller/WeatherController.js";
 
 import { Listener1, Listener2 } from "./listeners/index.js";
@@ -73,6 +74,10 @@ export const Router = {
         Listener1.registerListeners();
         Listener2.registerEvents();
         Listener2.registerListeners();
+        break;
+      case "/doctors":
+        const controller = DoctorController.init(this.selector);
+        controller.index();
         break;
 
       default:
