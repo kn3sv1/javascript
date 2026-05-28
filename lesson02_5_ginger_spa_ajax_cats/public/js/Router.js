@@ -1,6 +1,8 @@
 import { CatController } from "./controller/CatController.js";
 import { WeatherController } from "./controller/WeatherController.js";
 
+import { Listener1, Listener2 } from "./listeners/index.js";
+
 export const Router = {
   init(selector) {
     this.selector = selector;
@@ -54,6 +56,23 @@ export const Router = {
       case "/weather":
         const controller2 = WeatherController.init(this.selector);
         controller2.showWeather();
+        break;
+
+      case "/events":
+        app.innerHTML = `
+          <div id="events-block">
+            <button id="event1" data-name="Ginger">Ginger</button>
+            <button id="event2" data-name="Fluffy">Fluffy</button>
+            <button id="event3" data-name="Gucci">Gucci</button>
+            <button id="event4" data-name="Teady">Teady</button>
+          </div>
+          <div id="events-block-detail"></div>
+        `;
+
+        Listener1.registerEvents();
+        Listener1.registerListeners();
+        Listener2.registerEvents();
+        Listener2.registerListeners();
         break;
 
       default:
