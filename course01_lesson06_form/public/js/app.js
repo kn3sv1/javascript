@@ -1,6 +1,6 @@
 const FileUploader = {
   init() {
-    this.folders = ["dogs", "cats", "cars", "doctors"];
+    this.folders = ["dogs", "cats", "cars", "doctors", "flowers"];
     this.app = document.getElementById("app");
 
     return this;
@@ -8,19 +8,30 @@ const FileUploader = {
 
   foldersHtml(folders) {
     // refactor to for loop
-    return `
-    <option vaue="dogs">dogs</option>
-    <option vaue="cats">cats</option>
-    <option vaue="cars">cars</option>
-    <option vaue="doctors">doctors</option>
-    `;
+    console.log(folders);
+
+    return folders
+      .map(
+        (folder) => `
+      <option value="${folder}">${folder}</option>
+    `,
+      )
+      .join("");
+
+    // hard coded. Refactored above.
+    // return `
+    // <option value="dogs">dogs</option>
+    // <option value="cats">cats</option>
+    // <option value="cars">cars</option>
+    // <option value="doctors">doctors</option>
+    // `;
   },
   async submitEventListener(e) {
     e.preventDefault();
 
     const fileInput = document.getElementById("fileInput");
     const folderSelect = document.getElementById("folderSelect");
-    const result = document.getElementById("result");
+    const result = document.getElementById("upload-result");
 
     const file = fileInput.files[0];
     const folder = folderSelect.value;
@@ -56,18 +67,21 @@ const FileUploader = {
   render() {
     this.app.innerHTML =
       `
-    <form id="uploadForm">
-      <label>Select folder:</label>
-      <select id="folderSelect">
-        ` +
-      this.foldersHtml(this.folders) +
-      `
-      </select>
-      <br><br>  
-      <input type="file" id="fileInput" />
-      <button type="submit">Upload</button>
-    </form>
-    <div id="result"></div>
+      <div class ="container">
+        <h1>File Uploader</h1>
+          <form id="uploadForm">
+            <label>Select folder:</label>
+            <select id="folderSelect">
+              ` +
+            this.foldersHtml(this.folders) +
+            `
+            </select>
+            <br><br>  
+            <input type="file" id="fileInput" />
+            <button type="submit">Upload</button>
+          </form>
+        <div id="upload-result"></div>
+      </div>
     `;
 
     // now it (element in DOM) exists after innerHtml
