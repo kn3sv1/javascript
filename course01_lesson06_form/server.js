@@ -2,6 +2,7 @@ const express = require('express')
 const jsonServer = require('json-server')
 const path = require('path')
 const files = require("./files");
+const fs = require("fs");
 
 const app = express()
 
