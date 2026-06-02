@@ -48,6 +48,13 @@
       "age": "90",
       "photo": "/uploads/cats/gucci.png",
       "id": "019e89b2-33f9-71e3-9ba6-2b34d07d"
+    },
+    {
+      "city": "Larnaka",
+      "name": "888",
+      "age": "55",
+      "photo": "/uploads/cats/gucci.png",
+      "id": "019e89d1-75de-7cf8-bf9b-26fa4617"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
