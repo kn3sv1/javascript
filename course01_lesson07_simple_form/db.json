@@ -1,24 +1,34 @@
 {
-  "posts": [
+  "cats": [
     {
-      "title": "rty",
-      "id": "JooBeyKemv0"
+      "id": "019e6057-90f0-7e02-89c2-23e09ddd6300",
+      "name": "Ginger",
+      "age": 6,
+      "photo": "/images/cats/ginger.png"
     },
     {
-      "title": "rtyrty",
-      "id": "KttPtnc"
+      "id": "019e6057-90f0-7e02-89c2-23e09ddd6301",
+      "name": "Fluffy",
+      "age": 8,
+      "photo": "/images/cats/fluffy.png"
     },
     {
-      "title": "456456",
-      "id": "yP9HPcV"
+      "id": "019e6057-90f0-7e02-89c2-23e09ddd6302",
+      "name": "Gucci",
+      "age": 14,
+      "photo": "/images/cats/gucci.png"
     },
     {
-      "id": "uhXNIOM",
-      "title": "56756766666666666666"
+      "id": "019e6057-90f0-7e02-89c2-23e09ddd6303",
+      "name": "Teady",
+      "age": 13,
+      "photo": "/images/cats/teddy.png"
     },
     {
-      "title": "5555",
-      "id": "gSs2idC"
+      "name": "Natasha",
+      "age": "55",
+      "photo": "malaka",
+      "id": "019e8959-efee-79b0-9a5f-675f76d9"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

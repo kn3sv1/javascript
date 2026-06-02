@@ -25,7 +25,7 @@ h1 {
 }
 
 select,
-input[type="file"],
+input,
 button {
   width: 100%;
   margin-bottom: 15px;
@@ -35,7 +35,7 @@ button {
 }
 
 select,
-input[type="file"] {
+input {
   border: 1px solid #ccc;
   background: white;
 }

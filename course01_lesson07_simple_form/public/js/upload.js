@@ -67,7 +67,7 @@ const FileUploader = {
   render() {
     this.app.innerHTML =
       `
-      <div class ="container">
+      <div class="container">
         <h1>File Uploader</h1>
           <form id="uploadForm">
             <label>Select folder:</label>
