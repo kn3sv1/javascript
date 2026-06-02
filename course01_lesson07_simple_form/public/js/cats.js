@@ -17,6 +17,51 @@ const CatForm = {
       )
       .join("");
   },
+  fakeDelete(id) {
+    fetch("api/cats/" + id, {
+      method: "DELETE",
+    });
+  },
+  fakeUpdate() {
+    fetch("api/cats/019e89b2-33f9-71e3-9ba6-2b34d07d", {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        city: "Paphos",
+        name: "Gucci",
+        age: "90",
+        photo: "/uploads/cats/gucci.png",
+        id: "019e89b2-33f9-71e3-9ba6-2b34d07d",
+      }),
+    });
+  },
+  async getPhotos() {
+    try {
+      const response = await fetch("/files/upload/cats", {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      const data = await response.json();
+      //console.log(data);
+
+      const photos = data.files.map((file) => `/uploads/cats/${file}`);
+      //console.log(photos);
+
+      return photos;
+    } catch (err) {
+      console.error(err);
+      throw err;
+    }
+  },
+  showPhotoPreview(e) {
+    const value = e.target.value;
+    const result = document.getElementById("photo-preview");
+    result.innerHTML = `<img height="100" src="${value}" />`;
+  },
   async submitEventListener(e) {
     e.preventDefault();
     const result = document.getElementById("ajax-result");
@@ -52,14 +97,19 @@ const CatForm = {
       result.textContent = "Submition failed";
     }
   },
-  render() {
+  async render() {
+    // <div id="ajax-result"></div> - will appear in DOM
+    // so we will not use AJAX result at all in this function.
+    const photos = await this.getPhotos();
+
+    // <div id="ajax-result"></div> = only here not before.
     this.app.innerHTML =
       `
       <div class="container">
         <h1>Cat Form</h1>
           <form id="catForm">
             <label>Select folder:</label>
-            <select>
+            <select name="city">
               ` +
       this.dropDownToHtml(this.cities) +
       `
@@ -70,8 +120,13 @@ const CatForm = {
             <label>Age:</label>
             <input type="text" name="age" value="" >
             <label>Photo:</label>
-            <input type="text" name="photo" value="" >
-            <button type="submit">Upload</button>
+            <select name="photo" id="cat-form-photo">
+              ` +
+      this.dropDownToHtml(photos) +
+      `
+            </select>
+            <div id="photo-preview"></div>
+            <button type="submit">Create</button>
           </form>
         <div id="ajax-result"></div>
       </div>
@@ -80,8 +135,17 @@ const CatForm = {
     // now it (element in DOM) exists after innerHtml
     const form = document.getElementById("catForm");
     form.addEventListener("submit", this.submitEventListener);
+
+    const catFormPhoto = document.getElementById("cat-form-photo");
+    catFormPhoto.addEventListener("change", this.showPhotoPreview);
+    // as soon as we open form we should see the preview who is selected
+    // that is why add this code bellow that triggers the change event.
+    // so our listener call back function will be called without users help to change drop down.
+    catFormPhoto.dispatchEvent(new Event("change"));
   },
 };
 
 const catForm = CatForm.init();
 catForm.render();
+
+window.catForm = catForm;

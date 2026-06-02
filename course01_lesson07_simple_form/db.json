@@ -41,6 +41,13 @@
       "age": "42",
       "photo": "malaka",
       "id": "019e8964-c211-75be-aefe-b28e8d96"
+    },
+    {
+      "city": "Paphos",
+      "name": "Gucci",
+      "age": "90",
+      "photo": "/uploads/cats/gucci.png",
+      "id": "019e89b2-33f9-71e3-9ba6-2b34d07d"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
