@@ -29,6 +29,18 @@
       "age": "55",
       "photo": "malaka",
       "id": "019e8959-efee-79b0-9a5f-675f76d9"
+    },
+    {
+      "name": "Natasha",
+      "age": "42",
+      "photo": "malaka",
+      "id": "019e8964-6432-73d4-94be-ff226186"
+    },
+    {
+      "name": "Angie Neophytou",
+      "age": "42",
+      "photo": "malaka",
+      "id": "019e8964-c211-75be-aefe-b28e8d96"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

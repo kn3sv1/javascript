@@ -46,7 +46,7 @@ const CatForm = {
       const data = await response.json();
       console.log(data);
 
-      result.textContent = `Submitted`;
+      result.textContent = `Submitted:` + JSON.stringify(data);
     } catch (err) {
       console.error(err);
       result.textContent = "Submition failed";
