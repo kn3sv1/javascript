@@ -17,11 +17,13 @@ export const CatForm = {
       )
       .join("");
   },
+
   fakeDelete(id) {
     fetch("api/cats/" + id, {
       method: "DELETE",
     });
   },
+
   fakeUpdate() {
     fetch("api/cats/019e89b2-33f9-71e3-9ba6-2b34d07d", {
       method: "PUT",
@@ -37,6 +39,7 @@ export const CatForm = {
       }),
     });
   },
+  
   async getPhotos() {
     try {
       const response = await fetch("/files/upload/cats", {
@@ -57,11 +60,13 @@ export const CatForm = {
       throw err;
     }
   },
+
   showPhotoPreview(e) {
     const value = e.target.value;
     const result = document.getElementById("photo-preview");
     result.innerHTML = `<img height="100" src="${value}" />`;
   },
+
   async submitEventListener(e) {
     e.preventDefault();
     const result = document.getElementById("ajax-result");
@@ -97,6 +102,7 @@ export const CatForm = {
       result.textContent = "Submition failed";
     }
   },
+
   async render() {
     // <div id="ajax-result"></div> - will appear in DOM
     // so we will not use AJAX result at all in this function.
