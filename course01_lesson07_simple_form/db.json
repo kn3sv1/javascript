@@ -1,13 +1,6 @@
 {
   "cats": [
     {
-      "id": "019e6057-90f0-7e02-89c2-23e09ddd6300",
-      "name": "Ginger",
-      "age": 6,
-      "city": "Limassol",
-      "photo": "/uploads/cats/ginger.png"
-    },
-    {
       "id": "019e6057-90f0-7e02-89c2-23e09ddd6301",
       "name": "Fluffy",
       "age": 8,
@@ -22,31 +15,6 @@
       "photo": "/uploads/cats/gucci.png"
     },
     {
-      "id": "019e6057-90f0-7e02-89c2-23e09ddd6303",
-      "name": "Teady",
-      "age": 13,
-      "city": "Limassol",
-      "photo": "/uploads/cats/teddy.png"
-    },
-    {
-      "name": "Natasha",
-      "age": "55",
-      "photo": "no photo",
-      "id": "019e8959-efee-79b0-9a5f-675f76d9"
-    },
-    {
-      "name": "Natasha",
-      "age": "42",
-      "photo": "no photo",
-      "id": "019e8964-6432-73d4-94be-ff226186"
-    },
-    {
-      "name": "Angie Neophytou",
-      "age": "42",
-      "photo": "no photo",
-      "id": "019e8964-c211-75be-aefe-b28e8d96"
-    },
-    {
       "city": "Paphos",
       "name": "Gucci",
       "age": "90",
@@ -54,18 +22,18 @@
       "id": "019e89b2-33f9-71e3-9ba6-2b34d07d"
     },
     {
-      "city": "Larnaka",
-      "name": "888",
-      "age": "55",
-      "photo": "/uploads/cats/gucci.png",
-      "id": "019e89d1-75de-7cf8-bf9b-26fa4617"
-    },
-    {
       "city": "Limassol",
       "name": "Teady",
       "age": "13",
       "photo": "/uploads/cats/teady.png",
       "id": "019e8ddd-50b9-7054-9840-f335a83d"
+    },
+    {
+      "city": "Paphos",
+      "name": "Whiskers",
+      "age": "1",
+      "photo": "/uploads/cats/fluffy_playing.png",
+      "id": "019e984b-7ce4-70b2-8420-df53e61e"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

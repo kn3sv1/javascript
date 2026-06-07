@@ -32,6 +32,23 @@ export const CatList = {
                 alt="${cat.name}"
             >
             </td>
+                  <td class="actions">
+
+        <button
+          class="edit-btn"
+          data-id="${cat.id}"
+        >
+          Edit
+        </button>
+
+        <button
+          class="delete-btn"
+          data-id="${cat.id}"
+        >
+          Delete
+        </button>
+
+      </td>
         </tr>`;
       })
       .join("");
@@ -50,6 +67,7 @@ export const CatList = {
                 <th>Name</th>
                 <th>Age</th>
                 <th>Photo</th>
+                <th>Action</th>
             </tr>
         </thead>
 

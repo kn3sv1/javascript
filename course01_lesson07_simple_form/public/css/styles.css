@@ -119,3 +119,34 @@ button:hover {
     object-fit:cover;
     border-radius:10px;
 }
+
+.actions{
+    display:flex;
+    gap:10px;
+}
+
+.edit-btn,
+.delete-btn{
+    border:none;
+    padding:10px 15px;
+    border-radius:5px;
+    color:white;
+    cursor:pointer;
+    font-size:14px;
+}
+
+.edit-btn{
+    background:blue;
+}
+
+.delete-btn{
+    background:crimson;
+}
+
+.edit-btn:hover{
+    opacity:.8;
+}
+
+.delete-btn:hover{
+    opacity:.8;
+}
