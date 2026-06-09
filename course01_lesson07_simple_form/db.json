@@ -15,13 +15,6 @@
       "photo": "/uploads/cats/gucci.png"
     },
     {
-      "city": "Paphos",
-      "name": "Gucci",
-      "age": "90",
-      "photo": "/uploads/cats/gucci.png",
-      "id": "019e89b2-33f9-71e3-9ba6-2b34d07d"
-    },
-    {
       "city": "Limassol",
       "name": "Teady",
       "age": "13",
@@ -29,11 +22,11 @@
       "id": "019e8ddd-50b9-7054-9840-f335a83d"
     },
     {
-      "city": "Paphos",
-      "name": "Whiskers",
-      "age": "1",
-      "photo": "/uploads/cats/fluffy_playing.png",
-      "id": "019e984b-7ce4-70b2-8420-df53e61e"
+      "city": "Limassol",
+      "name": "Ginger",
+      "age": "6",
+      "photo": "/uploads/cats/ginger.png",
+      "id": "019ead58-9749-77eb-8e65-af793124"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

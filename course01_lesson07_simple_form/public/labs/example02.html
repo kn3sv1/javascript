@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+  <body>
+    <h1></h1>
+    <div id="app"></div>
+    <script>
+      const cat = {
+        name: "Milo",
+
+        speak() {
+          console.log(this.name);
+        },
+        roma: () => {
+          console.log("inside ROMA:");
+          console.log(this);
+        },
+      };
+
+      cat.roma();
+
+      //const fn = cat.speak.bind(cat);
+
+      // this is window object.
+      console.log(this);
+
+      //const fn = cat.speak;
+      const fn = function () {
+        console.log("what are current THIS:");
+        console.log(this);
+      };
+
+      fn();
+      //console.log(cat.speak());
+    </script>
+  </body>
+</html>

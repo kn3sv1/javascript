@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+  <body>
+    <h1>Example arrow or bind</h1>
+    <div id="app"></div>
+    <button id="btn">Click me</button>
+    <script>
+      const App = {
+        name: "Cats App",
+
+        show() {
+          console.log(this.name);
+        },
+
+        init() {
+          const btn = document.getElementById("btn");
+
+          // this.show - bind to this object we are currently in now.
+          //btn.addEventListener("click", this.show.bind(this));
+          btn.addEventListener("click", (e) => this.show(e));
+          
+          // will not work because addEventListener call back function has inside own this.
+          // here this will be the button object it is called apon.
+          //btn.addEventListener("click", this.show);
+        },
+      };
+
+      App.init();
+    </script>
+  </body>
+</html>

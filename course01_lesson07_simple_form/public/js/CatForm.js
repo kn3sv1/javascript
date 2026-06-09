@@ -149,4 +149,9 @@ export const CatForm = {
     // so our listener call back function will be called without users help to change drop down.
     catFormPhoto.dispatchEvent(new Event("change"));
   },
+
+  getCities() {
+    const cities = this.cities;
+    return cities;
+  },
 };
