@@ -1,21 +1,31 @@
 import { uuidv7 } from "./utils.js";
 
 export const CatEditForm = {
-  init(id) {
-    this.id = id;
+  async init(id) {
+    this.cat = await this.getCatById(id);
     this.cities = ["Limassol", "Paphos", "Larnaka", "Nicosia"];
     this.app = document.getElementById("app");
 
     return this;
   },
 
-  dropDownToHtml(data) {
-    return data
-      .map(
-        (item) => `
-      <option value="${item}">${item}</option>
-    `,
-      )
+  dropDownCitiesToHtml(cities) {
+    return cities
+      .map((city) => {
+        const isSelected = city == this.cat.city ? "selected" : "";
+
+        return `<option ${isSelected} value="${city}">${city}</option>`;
+      })
+      .join("");
+  },
+
+    dropDownPhotosToHtml(photos) {
+    return photos
+      .map((photo) => {
+        const isSelected = photo == this.cat.photo ? "selected" : "";
+
+        return `<option ${isSelected} value="${photo}">${photo}</option>`;
+      })
       .join("");
   },
 
@@ -96,18 +106,18 @@ export const CatEditForm = {
             <label>Select folder:</label>
             <select name="city">
               ` +
-      this.dropDownToHtml(this.cities) +
+      this.dropDownCitiesToHtml(this.cities) +
       `
             </select>
             <br><br>  
             <label>Name:</label>
-            <input type="text" name="name" value="" >
+            <input type="text" name="name" value="${this.cat.name}" >
             <label>Age:</label>
-            <input type="text" name="age" value="" >
+            <input type="text" name="age" value="${this.cat.age}" >
             <label>Photo:</label>
             <select name="photo" id="cat-form-photo">
               ` +
-      this.dropDownToHtml(photos) +
+      this.dropDownPhotosToHtml(photos) +
       `
             </select>
             <div id="photo-preview"></div>
@@ -132,5 +142,10 @@ export const CatEditForm = {
   getCities() {
     const cities = this.cities;
     return cities;
+  },
+  async getCatById(id) {
+    const response = await fetch("/api/cats?id=" + id);
+    const data = await response.json();
+    return data[0];
   },
 };

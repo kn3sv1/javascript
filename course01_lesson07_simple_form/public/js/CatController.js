@@ -70,8 +70,8 @@ export const CatController = {
     catForm.render();
   },
 
-  editCat(id) {
-    const editCatForm = CatEditForm.init(id);
+  async editCat(id) {
+    const editCatForm = await CatEditForm.init(id);
     editCatForm.render();
   },
 
