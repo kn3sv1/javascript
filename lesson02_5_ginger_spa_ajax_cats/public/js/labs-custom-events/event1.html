@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script>
+      const app = document.getElementById("app");
+
+      document.addEventListener("click", (event) => {
+        if (event.target.matches("#events-block button")) {
+          console.log("Clicked:", event.target.dataset.name);
+        }
+      });
+
+      app.innerHTML = `
+  <div id="events-block">
+    <button data-name="Ginger">Ginger</button>
+    <button data-name="Fluffy">Fluffy</button>
+  </div>
+`;
+    </script>
+  </body>
+</html>

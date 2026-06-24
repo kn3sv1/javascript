@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input id="cat-input" />
+    <script>
+      const input = document.getElementById("cat-input");
+
+      input.addEventListener("cat-typed", (e) => {
+        console.log(e.detail.value);
+      });
+
+      input.dispatchEvent(
+        new CustomEvent("cat-typed", {
+          detail: {
+            value: "Fluffy",
+          },
+        }),
+      );
+    </script>
+  </body>
+</html>
