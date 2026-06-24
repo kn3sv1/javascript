@@ -1,0 +1,67 @@
+{
+  "movies": [
+    {
+      "id": 1,
+      "title": "MICHAEL",
+      "genre": "Biography,Documentary,History,Drama",
+      "description": "The story of the famous musician Michael Jackson, known as the King of Pop.",
+      "duration": "135 mins.",
+      "language": "English",
+      "photo": "/images/movies/michael.png"
+    },
+    {
+      "id": 2,
+      "title": "TOY STORY 5",
+      "genre": "Adventure,Drama,Comedy,Animation,Family,Fantasy",
+      "description": "Buzz, Woody, Jessie are challenged after being introduced to what kids are obsessed with today: electronics.",
+      "duration": "110 mins.",
+      "language": "English",
+      "photo": "/images/movies/toy_story_5.png"
+    },
+    {
+      "id": 3,
+      "title": "SCARY MOVIE 6",
+      "genre": "Comedy,Horror",
+      "description": "Two friends find themselves caught up in mayhem involving killers, monsters, and supernatural creatures once again.",
+      "duration": "105 mins.",
+      "language": "English",
+      "photo": "/images/movies/scary_movie_6.png"
+    },
+    {
+      "id": 4,
+      "title": "OBSESSION",
+      "genre": "Thriller,Horror",
+      "description": "After breaking the mysterious One Wish Willow to win his crush's heart, a hopeless romantic finds himself getting exactly what he asked for but soon discovers that some desires come at a dark, sinister price.",
+      "duration": "120 mins.",
+      "language": "English",
+      "photo": "/images/movies/obsession.png"
+    },
+    {
+      "id": 5,
+      "title": "DISCLOSURE DAY",
+      "genre": "Sci-Fiction,Thriller",
+      "description": "Two friends find themselves caught up in mayhem involving killers, monsters, and supernatural creatures once again.",
+      "duration": "155 mins.",
+      "language": "English",
+      "photo": "/images/movies/disclosure_day.png"
+    },
+    {
+      "id": 6,
+      "title": "MASTERS OF THE UNIVERSE",
+      "genre": "Fantasy,Action,Sci-Fiction",
+      "description": "He-Man, the most powerful man in the universe, goes against the evil Skeletor to save the planet Eternia and protect the secrets of Castle Grayskull.",
+      "duration": "150 mins.",
+      "language": "English",
+      "photo": "/images/movies/masters_of_the_universe.png"
+    },
+    {
+      "id": 7,
+      "title": "THE DEVIL WEARS PRADA 2",
+      "genre": "Comedy,Drama",
+      "description": "Follows Miranda Priestly's struggle against Emily Charlton, her former assistant turned rival executive, as they compete for advertising revenue amidst declining print media while Miranda nears retirement.",
+      "duration": "130 mins.",
+      "language": "English",
+      "photo": "/images/movies/the_devil_wears_prada_2.png"
+    }
+  ]
+}
