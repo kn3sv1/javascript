@@ -36,3 +36,69 @@ body {
   border-radius: 10px;
 }
 
+.comments-block {
+  margin-top: 50px;
+}
+
+.comments-block h2 {
+  color: white;
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+#commentsList {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.comment-card {
+  background: #1c1c1c;
+  border-left: 4px solid #e50914;
+  padding: 18px;
+  border-radius: 8px;
+}
+
+.comment-card h3 {
+  color: white;
+  margin-bottom: 8px;
+  font-size: 18px;
+}
+
+.comment-card p {
+  color: #ccc;
+  line-height: 1.5;
+  font-size: 15px;
+}
+
+.comment-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.comment-actions button {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: 0.2s;
+}
+
+.edit-btn {
+  background: #1f6feb;
+  color: white;
+}
+
+.edit-btn:hover {
+  background: #388bfd;
+}
+
+.delete-btn {
+  background: #d73a49;
+  color: white;
+}
+
+.delete-btn:hover {
+  background: #f85149;
+}
