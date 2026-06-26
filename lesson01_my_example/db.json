@@ -74,6 +74,11 @@
       "id": "uvi3U1bkFE0",
       "user": "Angie",
       "text": "Michael was a great movie! I can't wait for part 2"
+    },
+    {
+      "id": "_8qsIMPW5Ts",
+      "user": "Anna",
+      "text": "Toy Story 5 was great! The kids enjoyed it."
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

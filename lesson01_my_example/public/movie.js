@@ -69,5 +69,11 @@ commentForm.addEventListener("submit", async (e) => {
       text,
     }),
   });
-});
 
+  if (!response.ok) {
+    throw new Error("Failed to save comment");
+  }
+
+  // redirect/reload same page
+  window.location.reload();
+});
