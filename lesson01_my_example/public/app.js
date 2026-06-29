@@ -70,20 +70,6 @@ async function loadComments() {
 loadMovies();
 loadComments();
 
-document.addEventListener("click", async (e) => {
-  if (e.target.matches(".delete-btn")) {
-    const id = e.target.dataset.id;
-
-    await deleteComment(id);
-  }
-
-  if (e.target.matches(".edit-btn")) {
-    const id = e.target.dataset.id;
-
-    await editComment(id);
-  }
-});
-
 async function deleteComment(id) {
   const response = await fetch("http://localhost:3000/comments/" + id, {
     method: "DELETE",
@@ -95,8 +81,23 @@ async function deleteComment(id) {
 
   console.log("Deleted comment:", id);
 
+  const commentDeletedEvent = new CustomEvent("commentDeleted", {
+    detail: {
+      message: "Comment deleted successfully",
+      id: id,
+    },
+  });
+
+  document.dispatchEvent(commentDeletedEvent);
+
   loadComments();
 }
+
+document.addEventListener("commentDeleted", (e) => {
+  alert(e.detail.message + " (ID: " + e.detail.id + ")");
+
+  console.log("Custom event data:", e.detail);
+});
 
 async function editComment(id) {
   const newText = prompt("Edit your comment:");
@@ -121,3 +122,17 @@ async function editComment(id) {
 
   loadComments();
 }
+
+document.addEventListener("click", async (e) => {
+  if (e.target.matches(".delete-btn")) {
+    const id = e.target.dataset.id;
+
+    await deleteComment(id);
+  }
+
+  if (e.target.matches(".edit-btn")) {
+    const id = e.target.dataset.id;
+
+    await editComment(id);
+  }
+});
