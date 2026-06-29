@@ -94,7 +94,15 @@ async function deleteComment(id) {
 }
 
 document.addEventListener("commentDeleted", (e) => {
-  alert(e.detail.message + " (ID: " + e.detail.id + ")");
+  const notification = document.getElementById("notification");
+
+  notification.textContent = e.detail.message;
+
+  notification.classList.add("show");
+
+  setTimeout(() => {
+    notification.classList.remove("show");
+  }, 3000);
 
   console.log("Custom event data:", e.detail);
 });
