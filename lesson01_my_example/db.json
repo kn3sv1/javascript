@@ -69,6 +69,11 @@
       "id": "2",
       "user": "Roman",
       "text": "Scary Movie 6 was great! Absolutely hilarious! :))"
+    },
+    {
+      "id": "W9R94LZVE6g",
+      "user": "Angie",
+      "text": "Michael was a great movie"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
