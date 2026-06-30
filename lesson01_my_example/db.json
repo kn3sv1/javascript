@@ -7,7 +7,11 @@
       "description": "The story of the famous musician Michael Jackson, known as the King of Pop.",
       "duration": "135 mins.",
       "language": "English",
-      "photo": "/images/movies/michael.png"
+      "photo": "/images/movies/michael.png",
+      "showTime1": "05:15 PM",
+      "showTime2": "",
+      "trailer": "https://www.youtube.com/watch?v=3zOLzsbOleM",
+      "imdb": "https://imdb.com/title/..."
     },
     {
       "id": "2",
@@ -16,7 +20,11 @@
       "description": "Buzz, Woody, Jessie are challenged after being introduced to what kids are obsessed with today: electronics.",
       "duration": "110 mins.",
       "language": "English",
-      "photo": "/images/movies/toy_story_5.png"
+      "photo": "/images/movies/toy_story_5.png",
+      "showTime1": "05:15 PM",
+      "showTime2": "07:45 PM",
+      "trailer": "https://www.youtube.com/watch?v=c51ND9Hdbw0",
+      "imdb": "https://imdb.com/title/..."
     },
     {
       "id": "3",
@@ -25,7 +33,11 @@
       "description": "Two friends find themselves caught up in mayhem involving killers, monsters, and supernatural creatures once again.",
       "duration": "105 mins.",
       "language": "English",
-      "photo": "/images/movies/scary_movie_6.png"
+      "photo": "/images/movies/scary_movie_6.png",
+      "showTime1": "07:45 PM",
+      "showTime2": "",
+      "trailer": "https://www.youtube.com/watch?v=ra1g0udaQxA",
+      "imdb": "https://imdb.com/title/..."
     },
     {
       "id": "4",
@@ -34,7 +46,11 @@
       "description": "After breaking the mysterious One Wish Willow to win his crush's heart, a hopeless romantic finds himself getting exactly what he asked for but soon discovers that some desires come at a dark, sinister price.",
       "duration": "120 mins.",
       "language": "English",
-      "photo": "/images/movies/obsession.png"
+      "photo": "/images/movies/obsession.png",
+      "showTime1": "09:30 PM",
+      "showTime2": "",
+      "trailer": "https://www.youtube.com/watch?v=gMC8kkwbIQQ",
+      "imdb": "https://imdb.com/title/..."
     },
     {
       "id": "5",
@@ -43,7 +59,11 @@
       "description": "Two friends find themselves caught up in mayhem involving killers, monsters, and supernatural creatures once again.",
       "duration": "155 mins.",
       "language": "English",
-      "photo": "/images/movies/disclosure_day.png"
+      "photo": "/images/movies/disclosure_day.png",
+      "showTime1": "07:45 PM",
+      "showTime2": "",
+      "trailer": "https://www.youtube.com/watch?v=SCYT8vb2siQ",
+      "imdb": "https://imdb.com/title/..."
     },
     {
       "id": "6",
@@ -52,7 +72,11 @@
       "description": "He-Man, the most powerful man in the universe, goes against the evil Skeletor to save the planet Eternia and protect the secrets of Castle Grayskull.",
       "duration": "150 mins.",
       "language": "English",
-      "photo": "/images/movies/masters_of_the_universe.png"
+      "photo": "/images/movies/masters_of_the_universe.png",
+      "showTime1": "05:15 PM",
+      "showTime2": "",
+      "trailer": "https://www.youtube.com/watch?v=X21JsHLHnY8",
+      "imdb": "https://imdb.com/title/..."
     },
     {
       "id": "7",
@@ -61,7 +85,11 @@
       "description": "Follows Miranda Priestly's struggle against Emily Charlton, her former assistant turned rival executive, as they compete for advertising revenue amidst declining print media while Miranda nears retirement.",
       "duration": "130 mins.",
       "language": "English",
-      "photo": "/images/movies/the_devil_wears_prada_2.png"
+      "photo": "/images/movies/the_devil_wears_prada_2.png",
+      "showTime1": "05:15 PM",
+      "showTime2": "07:45 PM",
+      "trailer": "https://www.youtube.com/watch?v=e9HXmMnUEdE",
+      "imdb": "https://imdb.com/title/..."
     }
   ],
   "comments": [

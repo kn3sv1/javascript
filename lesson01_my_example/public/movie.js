@@ -47,6 +47,67 @@ async function loadMovie() {
 
   </div>
 `;
+
+  renderSchedule(movie);
+  renderActions(movie);
+}
+
+function renderSchedule(movie) {
+  const schedule = document.getElementById("movie-schedule");
+
+  const days = [
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+    "Sunday",
+  ];
+
+  schedule.innerHTML = `
+    <div class="schedule-box">
+      <h3>SCHEDULE</h3>
+
+      ${days
+        .map(
+          (day) => `
+        <div class="schedule-row">
+          <span>${day}</span>
+          <div class="show-time">
+            <span>${movie.showTime1}</span>
+            <span>${movie.showTime2}</span>
+          </div>
+        </div>
+      `,
+        )
+        .join("")}
+    </div>
+  `;
+}
+
+function renderActions(movie) {
+  const actions = document.getElementById("movie-actions");
+
+  actions.innerHTML = `
+    <div class="actions-box">
+      <a
+        href="${movie.trailer}"
+        target="_blank"
+        class="action-btn"
+      >
+        WATCH TRAILER
+      </a>
+
+      <a
+        href="${movie.imdb}"
+        target="_blank"
+        class="action-btn"
+      >
+        VIEW ON IMDB
+      </a>
+    </div>
+  `;
 }
 
 loadMovie();
