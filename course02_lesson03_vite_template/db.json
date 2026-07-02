@@ -1,0 +1,33 @@
+{
+  "cats": [
+    {
+      "id": "019e6057-90f0-7e02-89c2-23e09ddd6301",
+      "name": "Fluffy",
+      "age": 8,
+      "city": "Limassol",
+      "photo": "/uploads/cats/fluffy.png"
+    },
+    {
+      "id": "019e6057-90f0-7e02-89c2-23e09ddd6302",
+      "name": "Gucci",
+      "age": 14,
+      "city": "Limassol",
+      "photo": "/uploads/cats/gucci.png"
+    },
+    {
+      "city": "Larnaka",
+      "name": "Teady",
+      "age": "13",
+      "photo": "/uploads/cats/teady.png",
+      "id": "019e8ddd-50b9-7054-9840-f335a83d"
+    },
+    {
+      "city": "Paphos",
+      "name": "Ginger",
+      "age": "6",
+      "photo": "/uploads/cats/ginger.png",
+      "id": "019ead58-9749-77eb-8e65-af793124"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}

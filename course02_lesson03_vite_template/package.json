@@ -1,0 +1,33 @@
+{
+  "name": "lesson01_page",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test:server": "concurrently \"vitest --watch\" \"npm:server\"",
+    "test": "vitest run",
+    "server": "nodemon server.js",
+    "build_old": "tsc",
+    "build": "vite build",
+    "tsc:watch": "tsc --watch",
+    "dev_old": "concurrently \"npm:tsc:watch\" \"npm:server\"",
+    "dev": "concurrently \"vite\" \"npm:server\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "description": "",
+  "dependencies": {
+    "express": "^4.22.2",
+    "json-server": "^0.17.4",
+    "multer": "^2.1.1"
+  },
+  "devDependencies": {
+    "concurrently": "^10.0.3",
+    "jsdom": "^29.1.1",
+    "nodemon": "^3.1.14",
+    "typescript": "^6.0.3",
+    "vite": "^8.1.3",
+    "vitest": "^4.1.9"
+  }
+}
