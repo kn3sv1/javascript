@@ -6,6 +6,7 @@ export default defineConfig({
     sourcemap: true,
     minify: false,
     outDir: "public",
+    emptyOutDir: false,
 
     rollupOptions: {
       input: {
