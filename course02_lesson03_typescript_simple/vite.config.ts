@@ -8,12 +8,23 @@ export default defineConfig({
     outDir: "public/dist",
 
     rollupOptions: {
+      input: {
+        index: "index.html",
+        about: "about.html",
+      },
       output: {
-        entryFileNames: "asserts/App.js",
+        //entryFileNames: "assets/App.js",
+        entryFileNames: (chunk) => {
+          console.log(chunk.name);
+          if (chunk.name === "index") return "assets/App.js";
+          if (chunk.name === "about") return "assets/About.js";
 
-        chunkFileNames: "asserts/[name].js",
+          return "assets/[name].js";
+        },
 
-        assetFileNames: "asserts/[name].[ext]",
+        chunkFileNames: "assets/[name].js",
+
+        assetFileNames: "assets/[name].[ext]",
       },
     },
   },
@@ -29,6 +40,6 @@ export default defineConfig({
   test: {
     globals: true,
     environment: "jsdom",
-    include: ["tests/**/*.test.ts", "tests/**/*.spec.ts"]
+    include: ["tests/**/*.test.ts", "tests/**/*.spec.ts"],
   },
 });
