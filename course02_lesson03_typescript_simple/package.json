@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
+    "test": "concurrently \"vitest --watch\" \"npm:server\"",
     "server": "nodemon server.js",
     "build_old": "tsc",
     "build": "vite build",
