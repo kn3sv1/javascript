@@ -12,6 +12,8 @@ export default defineConfig({
       input: {
         index: "index.html",
         about: "about.html",
+        calculator: "calculator.html",
+        cats: "cats.html",
       },
       output: {
         //entryFileNames: "assets/App.js",
@@ -19,6 +21,8 @@ export default defineConfig({
           console.log(chunk.name);
           if (chunk.name === "index") return "assets/App.js";
           if (chunk.name === "about") return "assets/About.js";
+          if (chunk.name === "calculator") return "assets/CalculatorPage.js";
+          if (chunk.name === "cats") return "assets/CatsPage.js";
 
           return "assets/[name].js";
         },

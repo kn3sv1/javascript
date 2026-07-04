@@ -8,5 +8,5 @@
     "rootDir": "src",
     "outDir": "public/js"
   },
-  "include": ["src/**/*.ts", "vite-env.d.ts"]
+  "include": ["src/**/*.ts", "tests/**/*.ts", "vite-env.d.ts"]
 }
