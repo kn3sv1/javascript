@@ -10,5 +10,12 @@
       "autoAttachChildProcesses": true,
       "console": "integratedTerminal"
     }
+    // {
+    //   "name": "Launch Chrome",
+    //   "type": "chrome",
+    //   "request": "launch",
+    //   "url": "http://localhost:5173",
+    //   "webRoot": "${workspaceFolder}"
+    // }
   ]
 }
