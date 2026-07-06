@@ -13,4 +13,8 @@ describe("add", () => {
   it("adds zero", () => {
     expect(add(5, 0)).toBe(5);
   });
+
+  it("special case for 10", () => {
+    expect(add(10, 10)).toBe(10);
+  });
 });
