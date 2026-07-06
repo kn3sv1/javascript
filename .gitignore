@@ -4,6 +4,8 @@ out/
 !**/src/test/**/out/
 
 /**/node_modules/
+/**/dist/
+/**/coverage/
 
 ### Eclipse ###
 .apt_generated
