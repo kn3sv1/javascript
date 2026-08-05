@@ -1,4 +1,4 @@
-import { Person } from "./Types.js";
+import { Person } from "./Types";
 
 export const person: Person = {
   name: "Roman",

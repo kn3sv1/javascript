@@ -1,5 +1,5 @@
-import { Cat } from "./Types.js";
-import { person } from "./Person.js";
+import { Cat } from "./Types";
+import { person } from "./Person";
 
 export const cat: Cat = {
   name: "Milo2222",
