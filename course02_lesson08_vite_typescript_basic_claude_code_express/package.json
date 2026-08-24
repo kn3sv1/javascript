@@ -1,0 +1,32 @@
+{
+  "name": "course02_lesson08_vite_typescript_basic_claude_code_express",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "client": "vite",
+    "server": "tsx watch server/index.ts",
+    "dev": "concurrently \"npm:server\" \"npm:client\"",
+    "build": "tsc -p tsconfig.json --noEmit && vite build",
+    "preview": "vite preview"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "description": "",
+  "devDependencies": {
+    "@types/express": "^5.0.3",
+    "concurrently": "^10.0.4",
+    "jsdom": "^30.0.1",
+    "tsx": "^4.19.2",
+    "typescript": "^7.0.2",
+    "vite": "^8.1.5",
+    "vitest": "^4.1.11"
+  },
+  "dependencies": {
+    "express": "^5.2.1",
+    "json-server": "^0.17.4"
+  }
+}

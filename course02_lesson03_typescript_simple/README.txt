@@ -14,6 +14,27 @@ if you do:
 http://localhost:3000/ - it will take index.html from ROOT folder - but that is in TYPESCRIPT
 so it will not work!
 
+
+let's read as book:
+"dev": "concurrently \"vite\" \"npm:server\""
+
+Question number 1:
+Is Vite responsible for serving photo, uploading photo, JSON API requests?
+Answer: No, we need Express Node program = server.js.
+
+Question number 2:
+For browser JavaScript code what will do bundling of TYPESCRIPT?
+Answer: NodeJS? - No! Some other program that has hot reload as well = Vite
+
+Question number 3:
+How to run these two programs the same time?
+Answer: another program - "concurrently"
+We have 3 programs: concurrently, vite, node server.js
+To run all of them together we have scripts in package.json
+
+
+
+
 -------------------------------------------------
 
 

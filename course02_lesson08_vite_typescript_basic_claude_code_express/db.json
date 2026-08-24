@@ -1,0 +1,32 @@
+{
+  "cats": [
+    {
+      "id": 1,
+      "name": "Whiskers",
+      "breed": "Siamese",
+      "age": 3,
+      "color": "Cream"
+    },
+    {
+      "id": 2,
+      "name": "Tom",
+      "breed": "British Shorthair",
+      "age": 5,
+      "color": "Gray"
+    },
+    {
+      "id": 3,
+      "name": "Luna",
+      "breed": "Maine Coon",
+      "age": 2,
+      "color": "Black"
+    },
+    {
+      "name": "Teddy",
+      "breed": "meat",
+      "age": 2,
+      "color": "red111",
+      "id": 4
+    }
+  ]
+}

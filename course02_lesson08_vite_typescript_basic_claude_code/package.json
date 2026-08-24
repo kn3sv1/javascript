@@ -1,0 +1,21 @@
+{
+  "name": "course02_lesson08_vite_typescript_basic_claude_code",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "test": "vitest run"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "Simple Vite + TypeScript calculator for beginners",
+  "devDependencies": {
+    "jsdom": "^25.0.1",
+    "typescript": "^7.0.2",
+    "vite": "^8.1.5",
+    "vitest": "^4.0.0"
+  }
+}

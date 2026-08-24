@@ -3,6 +3,7 @@
     "target": "ES2020",
     "module": "ESNext",
     "sourceMap": true,
+    "inlineSources": true,
     "rootDir": "src",
     "outDir": "dist",
     "strict": true
