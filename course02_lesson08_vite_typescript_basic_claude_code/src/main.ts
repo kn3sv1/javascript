@@ -7,6 +7,8 @@ const calculateButton = document.querySelector<HTMLButtonElement>("#calculate")!
 const resultDisplay = document.querySelector<HTMLParagraphElement>("#result")!;
 
 function handleCalculate(): void {
+  console.log("handleCalculate called at:" + new Date().toISOString());
+
   const left = Number(leftInput.value);
   const right = Number(rightInput.value);
   const operator = operatorSelect.value as Operator;

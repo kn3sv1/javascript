@@ -31,7 +31,9 @@ function resultText(): string | null {
 
 describe("main (DOM wiring)", () => {
   beforeEach(() => {
+    // we DELETE cache on purpose because we need to bind later event listener to new DOM
     vi.resetModules();
+    //this is new DOM
     renderCalculatorHtml();
   });
 
