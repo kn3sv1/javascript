@@ -1,0 +1,32 @@
+{
+  "name": "course02_lesson11_cms",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "client": "vite",
+    "server": "tsx watch server/index.ts",
+    "dev": "concurrently \"npm:server\" \"npm:client\"",
+    "build": "tsc -p tsconfig.json --noEmit && vite build",
+    "preview": "vite preview",
+    "test": "vitest run"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "Simple two-SPA CMS: public site + admin panel, backed by Express, json-server, and Multer photo uploads",
+  "dependencies": {
+    "express": "^5.2.1",
+    "json-server": "^0.17.4",
+    "multer": "^2.0.1"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.3",
+    "@types/multer": "^1.4.12",
+    "concurrently": "^10.0.4",
+    "jsdom": "^25.0.1",
+    "tsx": "^4.19.2",
+    "typescript": "^7.0.2",
+    "vite": "^8.1.5",
+    "vitest": "^4.0.0"
+  }
+}

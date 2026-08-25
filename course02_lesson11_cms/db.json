@@ -1,0 +1,97 @@
+{
+  "navigation": [
+    {
+      "id": 1,
+      "label": "Home",
+      "path": "/",
+      "order": 1
+    },
+    {
+      "id": 2,
+      "label": "About",
+      "path": "/about",
+      "order": 2
+    },
+    {
+      "id": 3,
+      "label": "Contact",
+      "path": "/contact",
+      "order": 3
+    },
+    {
+      "label": "Angie's personal page",
+      "path": "/angie",
+      "order": 4,
+      "id": 4
+    }
+  ],
+  "pages": [
+    {
+      "id": 1,
+      "path": "/",
+      "title": "Welcome",
+      "content": "<p>Welcome to our site! This home page is loaded from the JSON server.</p>"
+    },
+    {
+      "id": 2,
+      "path": "/about",
+      "title": "About Us",
+      "content": "<p>We build simple, beginner-friendly web projects.</p>"
+    },
+    {
+      "path": "/contact",
+      "title": "Contact",
+      "content": "<p>Reach us any time at hello@example.com.</p>\n\nCall me in any case: 911",
+      "id": 3
+    },
+    {
+      "path": "/angie",
+      "title": "Hello from Angie",
+      "content": "my first news item<br />\n<img width=\"200\" src=\"/photos/1787677224144-7.jpg\"  />",
+      "id": 4
+    }
+  ],
+  "banners": [
+    {
+      "id": 1,
+      "message": "Welcome! Enjoy 10% off today.",
+      "pattern": "^/$",
+      "type": "promo",
+      "active": true
+    },
+    {
+      "id": 2,
+      "message": "This page is under construction.",
+      "pattern": "^/about",
+      "type": "info",
+      "active": true
+    },
+    {
+      "message": "Banner about Programming <br /><img width=\"100\" src=\"/photos/1787677538088-1.jpg\"  />",
+      "pattern": "^/angie",
+      "type": "promo",
+      "active": true,
+      "id": 3
+    }
+  ],
+  "photos": [
+    {
+      "filename": "1787677224144-7.jpg",
+      "url": "/photos/1787677224144-7.jpg",
+      "alt": "car",
+      "id": 1
+    },
+    {
+      "filename": "1787677235759-9.jpg",
+      "url": "/photos/1787677235759-9.jpg",
+      "alt": "car2",
+      "id": 2
+    },
+    {
+      "filename": "1787677538088-1.jpg",
+      "url": "/photos/1787677538088-1.jpg",
+      "alt": "car3",
+      "id": 3
+    }
+  ]
+}
