@@ -1,5 +1,4 @@
 const http = require('http');
-const url = require('url');
 const path = require('path');
 const fs = require('fs');
 
@@ -31,8 +30,8 @@ function redirect(res, location) {
 }
 
 function serveStatic(req, res, rootDir, urlPrefix) {
-  const parsedPath = url.parse(req.url).pathname;
-  const relPath = decodeURIComponent(parsedPath.slice(urlPrefix.length));
+  const pathname = new URL(req.url, 'http://localhost').pathname;
+  const relPath = decodeURIComponent(pathname.slice(urlPrefix.length));
   const filePath = path.join(rootDir, relPath);
 
   if (!filePath.startsWith(rootDir)) {
@@ -217,14 +216,14 @@ function deleteDoctor(req, res, id) {
 const server = http.createServer((req, res) => {
   let parsed;
   try {
-    parsed = url.parse(req.url, true);
+    parsed = new URL(req.url, 'http://localhost');
   } catch (err) {
     return sendHtml(res, 400, 'Bad request');
   }
 
   const pathname = parsed.pathname || '/';
   const method = req.method;
-  const id = parsed.query.id;
+  const id = parsed.searchParams.get('id');
 
   try {
     if (pathname.startsWith('/public/')) return serveStatic(req, res, PUBLIC_DIR, '/public/');

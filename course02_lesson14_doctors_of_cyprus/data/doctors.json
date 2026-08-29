@@ -1,1 +1,9 @@
-[]
+[
+  {
+    "id": 1,
+    "name": "Dr.  Andreas Pantazis",
+    "specialty": "Gynocologist",
+    "cityId": 1,
+    "photo": "doctor-1787988490667-193745619.png"
+  }
+]
