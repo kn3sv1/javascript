@@ -1,0 +1,13 @@
+{
+  "name": "doctors-of-cyprus",
+  "version": "1.0.0",
+  "description": "Simple CRUD site for Cyprus cities and doctors, built with plain Node.js (no framework), Multer for photo uploads, no template engine, no frontend JS.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "debug": "node --inspect server.js"
+  },
+  "dependencies": {
+    "multer": "^2.0.0"
+  }
+}
