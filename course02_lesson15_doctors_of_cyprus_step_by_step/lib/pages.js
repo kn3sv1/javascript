@@ -19,8 +19,20 @@ function showFormPage(res) {
       `);
 }
 
+function commentsPage(res, comments) {
+  res.writeHead(200, { "Content-Type": "text/html" });
+
+  let html = "";
+  for (const item of comments) {
+    html = html + `<p> Name: ${item.name}, Messege: ${item.message}</p>`;
+  }
+
+  res.end(html);
+}
+
 module.exports = {
   homePage,
   angiePage,
   showFormPage,
+  commentsPage,
 };
