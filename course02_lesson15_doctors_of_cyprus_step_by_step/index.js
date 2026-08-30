@@ -1,20 +1,34 @@
 const http = require("http");
 const fs = require("fs");
 const path = require("path");
+const { homePage, angiePage, showFormPage } = require("./lib/pages");
+const { getFormData } = require("./lib/formData");
 
 const PORT = 3000;
 
-const angiePage = "Angie's Page";
+const server = http.createServer(async (req, res) => {
+  if (req.method === "POST" && req.url === "/submit") {
+    const formData = await getFormData(req, res);
+    console.log(formData);
+    // maybe we want to do something here - save to JSON fle
 
-const server = http.createServer((req, res) => {
-  if (req.url === "/angie") {
     res.writeHead(200, { "Content-Type": "text/html" });
-    res.end(angiePage);
+    res.end("Received!");
+
     return;
   }
 
-  res.writeHead(200, { "Content-Type": "text/html" });
-  res.end("Home Page");
+  if (req.url === "/form") {
+    showFormPage(res);
+    return;
+  }
+
+  if (req.url === "/angie") {
+    angiePage(res);
+    return;
+  }
+
+  homePage(res);
 });
 
 server.listen(PORT, () => {
