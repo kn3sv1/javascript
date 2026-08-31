@@ -88,6 +88,9 @@ const server = http.createServer(async (req, res) => {
     res.writeHead(200, { "Content-Type": "text/html" });
     res.end("Received!");
 
+    // you should redirect to "comments" page
+    //redirect(res, '/comments');
+
     return;
   }
 
@@ -112,6 +115,8 @@ const server = http.createServer(async (req, res) => {
 
       res.writeHead(200, { "Content-Type": "text/html" });
       res.end("Received uploaded file!");
+
+      // redirect(res, '/doctors');
     });
 
     return;
