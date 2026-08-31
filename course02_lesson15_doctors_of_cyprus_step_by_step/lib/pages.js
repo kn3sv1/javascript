@@ -1,19 +1,32 @@
+
+function menu() {
+  return `
+  <a href="/">Home page</a></br>
+  <a href="/comments">Comments</a></br>
+  <a href="/angie">Angie's page</a></br>
+  <a href="/form">Form page</a></br>
+  <a href="/show-upload">upload file</a></br></br>
+  `;
+}
+
+
 function homePage(res) {
   res.writeHead(200, { "Content-Type": "text/html" });
-  res.end("Home Page");
+  res.end(`${menu()} Home Page`);
 }
 
 function angiePage(res) {
   res.writeHead(200, { "Content-Type": "text/html" });
-  res.end("Angie's Page");
+  res.end(`${menu()} Angie's Page`);
 }
 
 function showFormPage(res) {
   res.writeHead(200, { "Content-Type": "text/html" });
   res.end(`
+      ${menu()}
       <form method="POST" action="/submit">
-        <input name="name" /><br>
-        <input name="message" /><br>
+        <input name="name" /></br></br>
+        <input name="message" /></br></br>
         <button type="submit">Send</button>
       </form>
       `);
@@ -22,6 +35,7 @@ function showFormPage(res) {
 function showUploadFilePage(res) {
   res.writeHead(200, { "Content-Type": "text/html" });
   res.end(`
+      ${menu()}
       <form action="/upload" method="POST" enctype="multipart/form-data">
         <label for="file">Choose a file:</label><br><br>
         <input type="file" id="file" name="file"><br><br>
@@ -38,7 +52,7 @@ function commentsPage(res, comments) {
     html = html + `<p> Name: ${item.name}, Messege: ${item.message}</p>`;
   }
 
-  res.end(html);
+  res.end(`${menu()} ${html}`);
 }
 
 function showErrorPage(res, err) {
