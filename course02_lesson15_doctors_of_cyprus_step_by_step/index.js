@@ -60,6 +60,17 @@ function serveStatic(req, res, rootDir, urlPrefix) {
   });
 }
 
+function uuid() {
+  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, c => {
+    const r = Math.random() * 16 | 0;
+    const v = c === 'x' ? r : (r & 0x3 | 0x8);
+    return v.toString(16);
+  });
+}
+
+// console.log(uuid());
+// e.g. "f47ac10b-58cc-4372-a567-0e02b2c3d479"
+
 const server = http.createServer(async (req, res) => {
   let parsed;
   try {
@@ -81,6 +92,7 @@ const server = http.createServer(async (req, res) => {
 
   if (req.method === "POST" && req.url === "/submit") {
     const formData = await getFormData(req, res);
+    formData.uuid = uuid();
     console.log(formData);
     // maybe we want to do something here - save to JSON fle
     await saveData(formData);
