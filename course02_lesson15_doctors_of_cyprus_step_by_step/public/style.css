@@ -1,0 +1,192 @@
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  background: #f4f6f8;
+  color: #1c1c1e;
+}
+
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 32px;
+  background: #0b5d3b;
+  color: #fff;
+}
+
+.site-header .brand {
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.site-header nav a {
+  color: #fff;
+  text-decoration: none;
+  margin-left: 20px;
+  font-size: 0.95rem;
+}
+
+.site-header nav a:hover {
+  text-decoration: underline;
+}
+
+main {
+  max-width: 900px;
+  margin: 32px auto;
+  padding: 0 20px;
+}
+
+h1 {
+  margin-top: 0;
+}
+
+.flash {
+  background: #e6f4ea;
+  border: 1px solid #34a853;
+  color: #1e4620;
+  padding: 10px 14px;
+  border-radius: 6px;
+}
+
+.card-links {
+  display: flex;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.card {
+  flex: 1;
+  padding: 24px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+  text-align: center;
+  text-decoration: none;
+  color: #0b5d3b;
+  font-weight: 600;
+}
+
+.card:hover {
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+}
+
+th, td {
+  padding: 12px 14px;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+  vertical-align: middle;
+}
+
+th {
+  background: #0b5d3b;
+  color: #fff;
+}
+
+.thumb {
+  width: 56px;
+  height: 56px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.no-photo {
+  color: #999;
+  font-size: 0.85rem;
+}
+
+.actions {
+  white-space: nowrap;
+}
+
+.actions a {
+  margin-right: 10px;
+  color: #0b5d3b;
+}
+
+.inline-form {
+  display: inline;
+}
+
+button, .button {
+  display: inline-block;
+  background: #0b5d3b;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+
+button:hover, .button:hover {
+  background: #084a2f;
+}
+
+button.danger {
+  background: #c0392b;
+}
+
+button.danger:hover {
+  background: #992d22;
+}
+
+.button.secondary {
+  background: #999;
+}
+
+.button.secondary:hover {
+  background: #777;
+}
+
+form {
+  background: #fff;
+  padding: 24px;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+  max-width: 480px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+input[type="text"], select {
+  padding: 8px 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: normal;
+}
+
+input[type="file"] {
+  font-weight: normal;
+}
+
+.current-photo {
+  margin: 0;
+}
+
+.form-actions {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
