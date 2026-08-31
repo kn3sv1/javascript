@@ -13,6 +13,7 @@ function homePage(res) {
   res.write(`
     <link rel="stylesheet" href="/public/style.css" >
     <img width="200" src="/uploads/doctors/keyboard.png" />
+    <script src="/public/hello.js"></script>
     `);
   res.end(`${menu()} Home Page`);
 }
