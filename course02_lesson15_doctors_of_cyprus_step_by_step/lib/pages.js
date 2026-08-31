@@ -1,4 +1,3 @@
-
 function menu() {
   return `
   <a href="/">Home page</a></br>
@@ -9,9 +8,12 @@ function menu() {
   `;
 }
 
-
 function homePage(res) {
   res.writeHead(200, { "Content-Type": "text/html" });
+  res.write(`
+    <link rel="stylesheet" href="/public/style.css" >
+    <img width="200" src="/uploads/doctors/keyboard.png" />
+    `);
   res.end(`${menu()} Home Page`);
 }
 
