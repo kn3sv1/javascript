@@ -1,0 +1,52 @@
+{
+  "cats": [
+    {
+      "id": 1,
+      "name": "Luna",
+      "age": 3,
+      "color": "black"
+    },
+    {
+      "id": 2,
+      "name": "Milo",
+      "age": 5,
+      "color": "orange"
+    },
+    {
+      "id": 3,
+      "name": "Nala",
+      "age": 2,
+      "color": "white"
+    },
+    {
+      "name": "Fluffy",
+      "age": 8,
+      "color": "orange",
+      "id": 4
+    },
+    {
+      "name": "Ginger",
+      "age": 6,
+      "color": "orange",
+      "id": 5
+    },
+    {
+      "name": "Gucci",
+      "age": 14,
+      "color": "grey",
+      "id": 6
+    },
+    {
+      "name": "Whiskers",
+      "age": 4,
+      "color": "black and white",
+      "id": 7
+    },
+    {
+      "name": "Sarah",
+      "age": 3,
+      "color": "black",
+      "id": 8
+    }
+  ]
+}
