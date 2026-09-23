@@ -1,10 +1,16 @@
 function menu() {
   return `
-  <a href="/">Home page</a></br>
-  <a href="/cats">Cats page</a></br>
-  <a href="/angie">Angie's page</a></br>
-  <a href="/form">Form page</a></br>
-  <a href="/show-upload">upload file</a></br></br>
+    <link rel="stylesheet" href="/public/style.css" />
+    <header class="site-header">
+      <span class="brand">Cats CRUD</span>
+      <nav>
+        <a href="/">Home</a>
+        <a href="/cats">Cats</a>
+        <a href="/angie">Angie's Page</a>
+        <a href="/form">Add a Cat</a>
+        <a href="/show-upload">Upload File</a>
+      </nav>
+    </header>
   `;
 }
 
@@ -20,7 +26,6 @@ function escapeHtml(value) {
 function homePage(res) {
   res.writeHead(200, { "Content-Type": "text/html" });
   res.write(`
-    <link rel="stylesheet" href="/public/style.css" >
     <img width="200" src="/uploads/doctors/keyboard.png" />
     <script src="/public/hello.js"></script>
     `);
@@ -35,7 +40,6 @@ function angiePage(res) {
 function showFormPage(res) {
   res.writeHead(200, { "Content-Type": "text/html" });
   res.end(`
-    <link rel="stylesheet" href="/public/style.css" />
     ${menu()}
     <main>
       <h1>Add a Cat</h1>
@@ -105,7 +109,6 @@ function catsPage(res, cats) {
 
   res.writeHead(200, { "Content-Type": "text/html" });
   res.end(`
-    <link rel="stylesheet" href="/public/style.css" />
     ${menu()}
     <main>
       <h1>Cats</h1>
@@ -147,7 +150,6 @@ function catsPage(res, cats) {
 function editCatPage(res, cat) {
   res.writeHead(200, { "Content-Type": "text/html" });
   res.end(`
-    <link rel="stylesheet" href="/public/style.css" />
     ${menu()}
     <main>
       <h1>Edit ${escapeHtml(cat.name)}</h1>
@@ -194,7 +196,6 @@ function editCatPage(res, cat) {
 function catCreatedPage(res, cat) {
   res.writeHead(201, { "Content-Type": "text/html" });
   res.end(`
-    <link rel="stylesheet" href="/public/style.css" />
     ${menu()}
     <main>
       <h1>Cat Added</h1>
@@ -228,7 +229,6 @@ function catCreatedPage(res, cat) {
 function catFormErrorPage(res, errors) {
   res.writeHead(400, { "Content-Type": "text/html" });
   res.end(`
-    <link rel="stylesheet" href="/public/style.css" />
     ${menu()}
     <main>
       <h1>Could not add cat</h1>
