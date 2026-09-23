@@ -9,9 +9,20 @@ const {
   commentsPage,
   showUploadFilePage,
   showErrorPage,
+  catsPage,
+  editCatPage,
+  catCreatedPage,
+  catFormErrorPage,
 } = require("./lib/pages");
 
-const { parseData, readData, saveData } = require("./lib/database");
+const {
+  parseData,
+  readData,
+  saveData,
+  updateCat,
+  deleteCat,
+} = require("./lib/database");
+
 const { uploadDoctorPhoto, UPLOADS_DIR } = require("./lib/upload");
 
 const PORT = 3000;
@@ -168,24 +179,35 @@ const server = http.createServer(async (req, res) => {
 
     readData()
       .then((database) => {
-        res.writeHead(200, {
-          "Content-Type": "application/json",
-        });
-
-        res.end(JSON.stringify(database.cats));
+        catsPage(res, database.cats);
       })
       .catch((err) => {
         console.error(err);
+        showErrorPage(res, "Could not read cats");
+      });
 
-        res.writeHead(500, {
-          "Content-Type": "application/json",
-        });
+    return;
+  }
 
-        res.end(
-          JSON.stringify({
-            error: "Could not read cats",
-          }),
-        );
+  // GET /cats/:id/edit
+  if (req.method === "GET" && /^\/cats\/\d+\/edit$/.test(req.url)) {
+    const id = Number(req.url.split("/")[2]);
+
+    readData()
+      .then((database) => {
+        const cat = database.cats.find((cat) => cat.id === id);
+
+        if (!cat) {
+          res.writeHead(404, { "Content-Type": "text/html" });
+          res.end("Cat not found");
+          return;
+        }
+
+        editCatPage(res, cat);
+      })
+      .catch((err) => {
+        console.error(err);
+        showErrorPage(res, "Could not read cats");
       });
 
     return;
@@ -234,16 +256,7 @@ const server = http.createServer(async (req, res) => {
         }
 
         if (errors.length > 0) {
-          res.writeHead(400, {
-            "Content-Type": "application/json",
-          });
-
-          res.end(
-            JSON.stringify({
-              errors: errors,
-            }),
-          );
-
+          catFormErrorPage(res, errors);
           return;
         }
 
@@ -293,11 +306,7 @@ const server = http.createServer(async (req, res) => {
         await saveData(database);
 
         // 7. Send response
-        res.writeHead(201, {
-          "Content-Type": "application/json",
-        });
-
-        res.end(JSON.stringify(newCat));
+        catCreatedPage(res, newCat);
       } catch (err) {
         console.error(err);
 
@@ -408,6 +417,174 @@ const server = http.createServer(async (req, res) => {
         res.end(
           JSON.stringify({
             error: "Could not read cats",
+          }),
+        );
+      });
+
+    return;
+  }
+
+  // PUT /cats/:id
+  if (req.method === "PUT" && req.url.startsWith("/cats/")) {
+    const id = Number(req.url.split("/")[2]);
+
+    // Validate ID
+    if (!Number.isInteger(id) || id <= 0) {
+      res.writeHead(400, {
+        "Content-Type": "application/json",
+      });
+
+      res.end(
+        JSON.stringify({
+          error: "Invalid cat ID",
+        }),
+      );
+
+      return;
+    }
+
+    let body = "";
+
+    req.on("data", (chunk) => {
+      body += chunk;
+    });
+
+    req.on("end", async () => {
+      try {
+        // Parse request body
+        const updatedCat = parseData(body);
+
+        // Validate data
+        const errors = [];
+
+        if (!updatedCat.name || updatedCat.name.trim() === "") {
+          errors.push("Name is required");
+        }
+
+        if (!Number.isInteger(updatedCat.age) || updatedCat.age < 0) {
+          errors.push("Age must be a non-negative integer");
+        }
+
+        if (!updatedCat.color || updatedCat.color.trim() === "") {
+          errors.push("Color is required");
+        }
+
+        if (errors.length > 0) {
+          res.writeHead(400, {
+            "Content-Type": "application/json",
+          });
+
+          res.end(
+            JSON.stringify({
+              errors: errors,
+            }),
+          );
+
+          return;
+        }
+
+        // Read database
+        const database = await readData();
+
+        // Update cat
+        const cat = updateCat(database, id, updatedCat);
+
+        // Cat doesn't exist
+        if (!cat) {
+          res.writeHead(404, {
+            "Content-Type": "application/json",
+          });
+
+          res.end(
+            JSON.stringify({
+              error: "Cat not found",
+            }),
+          );
+
+          return;
+        }
+
+        // Save modified database
+        await saveData(database);
+
+        // Return updated cat
+        res.writeHead(200, {
+          "Content-Type": "application/json",
+        });
+
+        res.end(JSON.stringify(cat));
+      } catch (err) {
+        console.error(err);
+
+        res.writeHead(500, {
+          "Content-Type": "application/json",
+        });
+
+        res.end(
+          JSON.stringify({
+            error: "Internal server error",
+          }),
+        );
+      }
+    });
+
+    return;
+  }
+
+  // DELETE /cats/:id
+  if (req.method === "DELETE" && req.url.startsWith("/cats/")) {
+    const id = Number(req.url.split("/")[2]);
+
+    if (!Number.isInteger(id) || id <= 0) {
+      res.writeHead(400, {
+        "Content-Type": "application/json",
+      });
+
+      res.end(
+        JSON.stringify({
+          error: "Invalid cat ID",
+        }),
+      );
+
+      return;
+    }
+
+    readData()
+      .then(async (database) => {
+        const deletedCat = deleteCat(database, id);
+
+        if (!deletedCat) {
+          res.writeHead(404, {
+            "Content-Type": "application/json",
+          });
+
+          res.end(
+            JSON.stringify({
+              error: "Cat not found",
+            }),
+          );
+
+          return;
+        }
+
+        await saveData(database);
+
+        res.writeHead(200, {
+          "Content-Type": "application/json",
+        });
+
+        res.end(JSON.stringify(deletedCat));
+      })
+      .catch((err) => {
+        console.error(err);
+
+        res.writeHead(500, {
+          "Content-Type": "application/json",
+        });
+
+        res.end(
+          JSON.stringify({
+            error: "Internal server error",
           }),
         );
       });

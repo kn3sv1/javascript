@@ -45,8 +45,37 @@ function saveData(database) {
   });
 }
 
+function updateCat(database, id, updatedCat) {
+  const index = database.cats.findIndex((cat) => cat.id === id);
+
+  if (index === -1) {
+    return null;
+  }
+
+  database.cats[index] = {
+    id: id,
+    ...updatedCat,
+  };
+
+  return database.cats[index];
+}
+
+function deleteCat(database, id) {
+  const index = database.cats.findIndex((cat) => cat.id === id);
+
+  if (index === -1) {
+    return null;
+  }
+
+  const [deletedCat] = database.cats.splice(index, 1);
+
+  return deletedCat;
+}
+
 module.exports = {
   parseData,
   readData,
   saveData,
+  updateCat,
+  deleteCat,
 };

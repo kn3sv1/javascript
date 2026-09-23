@@ -2,15 +2,9 @@
   "cats": [
     {
       "id": 1,
-      "name": "Luna",
-      "age": 3,
-      "color": "black"
-    },
-    {
-      "id": 2,
-      "name": "Milo",
+      "name": "Tiger",
       "age": 5,
-      "color": "orange"
+      "color": "grey"
     },
     {
       "id": 3,
@@ -47,6 +41,18 @@
       "age": 3,
       "color": "black",
       "id": 8
+    },
+    {
+      "name": "Blacky",
+      "age": 4,
+      "color": "black",
+      "id": 9
+    },
+    {
+      "name": "Batman",
+      "age": 3,
+      "color": "Black and white",
+      "id": 10
     }
   ]
 }
