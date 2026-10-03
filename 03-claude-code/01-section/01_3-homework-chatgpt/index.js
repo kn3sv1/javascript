@@ -2,26 +2,14 @@ import http from "node:http";
 import fs from "node:fs";
 import path from "node:path";
 import { serveStatic } from "./lib/staticFile.js";
+import { sendHtml, menu, layout, homePage, angiePage, romaPage } from "./lib/pages.js";
+
 
 const PORT = 3000;
 const PUBLIC_DIR = path.join(import.meta.dirname, "public");
 const UPLOADS_DIR = path.join(import.meta.dirname, "uploads");
 console.log("UPLOADS_DIR: " + UPLOADS_DIR);
 
-function sendHtml(res, status, html) {
-  res.writeHead(status, { "Content-Type": "text/html; charset=utf-8" });
-  res.end(html);
-}
-
-function homePage(res) {
-  res.writeHead(200, { "Content-Type": "text/html" });
-  res.write(`
-    <link rel="stylesheet" href="/public/style.css" >
-    <img width="200" src="/uploads/doctors/keyboard.png" />
-    <script src="/public/hello.js"></script>
-    `);
-  res.end(`Home Page`);
-}
 
 function router(req, res) {
   let parsed;
@@ -46,13 +34,29 @@ function router(req, res) {
 
   // http://localhost:3000/angie
   if (pathname.startsWith("/angie")) {
-    sendHtml(res, 200, '<span style="color:blue">Hello from Angie</span>');
-    return;
+    // sendHtml(
+    //   res,
+    //   200,
+    //   `${menu()}<span style="color:blue">Hello from Angie</span>`,
+    // );
+    // sendHtml(res, 200, layout("Angie", '<span style="color:blue">Hello from Angie</span>'));
+    // return;
+      return angiePage(res);
   }
   // http://localhost:3000/roma
   if (pathname.startsWith("/roma")) {
-    sendHtml(res, 200, '<span style="color:red">Hello from Roma</span>');
-    return;
+    // sendHtml(
+    //   res,
+    //   200,
+    //   `${menu()}<span style="color:red">Hello from Roma</span>`
+    // );
+    // sendHtml(
+    //   res,
+    //   200,
+    //   layout("Roma", '<span style="color:red">Hello from Roma</span>'),
+    // );
+    //return;
+    return romaPage(res);
   }
 
   // for rest pages better to show 404 page but it is ok for now
