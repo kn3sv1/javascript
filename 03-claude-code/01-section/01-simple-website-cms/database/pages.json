@@ -1,0 +1,28 @@
+[
+  {
+    "id": "8f10bd6b-10de-46a6-b7a6-24f593bae345",
+    "title": "Doctor Alex's page",
+    "slug": "doctor-alex",
+    "description": "Hello form Dr Alex",
+    "mainImage": "gallery/1791016470840-alex.png",
+    "content": "<p>Bla bla bla <strong style=\"color:red;\">123</strong></p>",
+    "published": true,
+    "showInMenu": true,
+    "menuOrder": 0,
+    "createdAt": "2026-10-03T08:39:13.685Z",
+    "updatedAt": "2026-10-03T08:47:23.104Z"
+  },
+  {
+    "id": "f9464539-07cf-4582-bd07-0efb4fb8611e",
+    "title": "Doctor Izzie's page",
+    "slug": "doctor-izzie",
+    "description": "Hello from doctor Izzie",
+    "mainImage": "gallery/1791016510112-izzie.png",
+    "content": "<p>Oncologist&nbsp;</p>",
+    "published": true,
+    "showInMenu": true,
+    "menuOrder": 0,
+    "createdAt": "2026-10-03T08:40:57.636Z",
+    "updatedAt": "2026-10-03T08:40:57.636Z"
+  }
+]

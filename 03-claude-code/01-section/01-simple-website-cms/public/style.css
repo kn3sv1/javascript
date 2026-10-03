@@ -190,3 +190,181 @@ input[type="file"] {
   gap: 12px;
   align-items: center;
 }
+
+/* ---------- Shared ---------- */
+
+.site-header .brand {
+  color: #fff;
+  text-decoration: none;
+}
+
+.admin-header {
+  background: #1f2d3d;
+}
+
+body.admin {
+  background: #f4f6f8;
+}
+
+.card-description {
+  display: block;
+  margin-top: 6px;
+  color: #666;
+  font-weight: normal;
+  font-size: 0.85rem;
+}
+
+.hint {
+  color: #666;
+  font-size: 0.85rem;
+  margin: 0;
+}
+
+.errors {
+  background: #fdecea;
+  border: 1px solid #c0392b;
+  color: #7a1f16;
+  padding: 10px 14px 10px 32px;
+  border-radius: 6px;
+}
+
+/* ---------- Public pages ---------- */
+
+.page-description {
+  font-size: 1.15rem;
+  color: #444;
+}
+
+.main-image {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin: 20px 0;
+}
+
+.ck-content img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ---------- Admin forms ---------- */
+
+.page-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.page-heading h1 {
+  margin: 0;
+}
+
+.wide-form {
+  max-width: 100%;
+}
+
+textarea,
+input[type="number"] {
+  padding: 8px 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: normal;
+  font-family: inherit;
+}
+
+.ck-editor__editable {
+  min-height: 300px;
+  font-weight: normal;
+}
+
+.image-preview {
+  display: block;
+  max-width: 240px;
+  max-height: 160px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.image-preview[hidden] {
+  display: none;
+}
+
+.checkbox-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  align-items: center;
+}
+
+label.checkbox {
+  flex-direction: row;
+  align-items: center;
+}
+
+.inline-label {
+  flex-direction: row;
+  align-items: center;
+}
+
+.inline-label input {
+  width: 80px;
+}
+
+button.small {
+  padding: 4px 10px;
+  font-size: 0.8rem;
+}
+
+/* ---------- Admin photos ---------- */
+
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 16px;
+}
+
+.photo {
+  margin: 0;
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+}
+
+.photo img {
+  display: block;
+  width: 100%;
+  height: 130px;
+  object-fit: cover;
+}
+
+.photo figcaption {
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.photo figcaption input {
+  width: 100%;
+  font-size: 0.75rem;
+  padding: 4px 6px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+/* the delete form inside a photo card should not look like a big form */
+.photo form {
+  padding: 0;
+  box-shadow: none;
+  background: none;
+}
+
+.count {
+  color: #999;
+  font-weight: normal;
+  font-size: 1rem;
+}

@@ -1,17 +1,30 @@
-const http = require("http");
-const fs = require("fs");
-const path = require("path");
+import http from "http";
+import fs from "fs";
+import path from "path";
+import { fileURLToPath } from "url";
 
-const { getFormData } = require("./lib/formData");
-const { saveData, readData } = require("./lib/database");
-const { uploadDoctorPhoto, UPLOADS_DIR } = require("./lib/upload");
+import { findRoute } from "./lib/router.js";
+import { sendHtml } from "./lib/response.js";
+import { UPLOADS_DIR } from "./lib/upload.js";
+import { adminNotFoundView } from "./lib/views/admin.js";
+
+// Importing the route files registers their routes (the addRoute calls).
+import { sendClientNotFound } from "./lib/routes/client.js";
+import "./lib/routes/admin.js";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const PORT = 3000;
 const PUBLIC_DIR = path.join(__dirname, "public");
+// CKEditor's ready-to-use browser files, installed with "npm install ckeditor5"
+const CKEDITOR_DIR = path.join(__dirname, "node_modules", "ckeditor5", "dist", "browser");
 
 const MIME_TYPES = {
+  ".html": "text/html; charset=utf-8",
   ".css": "text/css",
   ".js": "text/javascript",
+  ".map": "application/json",
   ".png": "image/png",
   ".jpg": "image/jpeg",
   ".jpeg": "image/jpeg",
@@ -20,32 +33,13 @@ const MIME_TYPES = {
   ".svg": "image/svg+xml",
 };
 
-function homePage(res) {
-  res.writeHead(200, { "Content-Type": "text/html" });
-  res.write(`
-    <link rel="stylesheet" href="/public/style.css" >
-    <img width="200" src="/uploads/doctors/keyboard.png" />
-    <script src="/public/hello.js"></script>
-    `);
-  res.end(`${menu()} Home Page`);
-}
-
-function sendHtml(res, status, html) {
-  res.writeHead(status, { "Content-Type": "text/html; charset=utf-8" });
-  res.end(html);
-}
-
-function redirect(res, location) {
-  res.writeHead(302, { Location: location });
-  res.end();
-}
-
 function serveStatic(req, res, rootDir, urlPrefix) {
   const pathname = new URL(req.url, "http://localhost").pathname;
   const relPath = decodeURIComponent(pathname.slice(urlPrefix.length));
   const filePath = path.join(rootDir, relPath);
 
-  if (!filePath.startsWith(rootDir)) {
+  // Do not allow paths like "/public/../index.js" to leave the folder.
+  if (!filePath.startsWith(rootDir + path.sep)) {
     sendHtml(res, 403, "Forbidden");
     return;
   }
@@ -58,36 +52,50 @@ function serveStatic(req, res, rootDir, urlPrefix) {
     const ext = path.extname(filePath).toLowerCase();
     res.writeHead(200, {
       "Content-Type": MIME_TYPES[ext] || "application/octet-stream",
+      // Tells the browser to trust our Content-Type and not guess.
+      "X-Content-Type-Options": "nosniff",
     });
     res.end(data);
   });
 }
 
-// console.log(uuid());
-// e.g. "f47ac10b-58cc-4372-a567-0e02b2c3d479"
-
 const server = http.createServer(async (req, res) => {
-  let parsed;
   try {
-    parsed = new URL(req.url, "http://localhost");
+    const pathname = new URL(req.url, "http://localhost").pathname;
+
+    // Static files
+    if (pathname.startsWith("/public/")) {
+      return serveStatic(req, res, PUBLIC_DIR, "/public/");
+    }
+    if (pathname.startsWith("/uploads/")) {
+      return serveStatic(req, res, UPLOADS_DIR, "/uploads/");
+    }
+    if (pathname.startsWith("/vendor/ckeditor5/")) {
+      return serveStatic(req, res, CKEDITOR_DIR, "/vendor/ckeditor5/");
+    }
+
+    const isAdmin = pathname === "/admin" || pathname.startsWith("/admin/");
+
+    const route = findRoute(req.method, pathname);
+    if (route) {
+      await route.handler(req, res, route.params);
+      return;
+    }
+
+    if (isAdmin) {
+      sendHtml(res, 404, adminNotFoundView());
+    } else {
+      await sendClientNotFound(res);
+    }
   } catch (err) {
-    return sendHtml(res, 400, "Bad request");
+    console.error(err);
+    if (!res.headersSent) {
+      sendHtml(res, 500, "Something went wrong. Please try again.");
+    }
   }
-
-  // http://localhost:3000/uploads/doctors/keyboard.png
-  // http://localhost:3000/public/style.css
-  // http://localhost:3000/public/hello.js
-  const pathname = parsed.pathname || "/";
-  if (pathname.startsWith("/public/")) {
-    return serveStatic(req, res, PUBLIC_DIR, "/public/");
-  }
-  if (pathname.startsWith("/uploads/")) {
-    return serveStatic(req, res, UPLOADS_DIR, "/uploads/");
-  }
-
-  homePage(res);
 });
 
 server.listen(PORT, () => {
   console.log(`Server running at http://localhost:${PORT}`);
+  console.log(`Admin area:       http://localhost:${PORT}/admin`);
 });
