@@ -20,17 +20,25 @@ export function pageView(page, menuPages) {
       <div class="ck-content">${page.content}</div>
     </article>`;
 
-  return clientLayout({ title: page.title, description: page.description, menuPages, body });
+  return clientLayout({
+    title: page.title,
+    description: page.description,
+    menuPages,
+    body,
+  });
 }
 
 // Shown on "/" when there is no published page with the slug "home".
 export function pageListView(pages, menuPages) {
   const items = pages
-    .map((page) => `
+    .map(
+      (page) => `
       <a class="card" href="/pages/${encodeURIComponent(page.slug)}">
+        <img width="50" src="/uploads/${page.mainImage}" />
         ${escapeHtml(page.title)}
         <span class="card-description">${escapeHtml(page.description)}</span>
-      </a>`)
+      </a>`,
+    )
     .join("");
 
   const body = `

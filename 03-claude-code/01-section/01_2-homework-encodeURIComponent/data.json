@@ -1,0 +1,42 @@
+[
+  {
+    "id": "1",
+    "name": "Maria",
+    "note": "Plain name - works with or without encoding"
+  },
+  {
+    "id": "2",
+    "name": "Tom & Jerry",
+    "note": "& splits a query string into two parameters"
+  },
+  {
+    "id": "3",
+    "name": "C++",
+    "note": "+ turns into a space in a query string"
+  },
+  {
+    "id": "4",
+    "name": "100% Cotton",
+    "note": "a lonely % makes decodeURIComponent throw"
+  },
+  {
+    "id": "5",
+    "name": "AC/DC",
+    "note": "/ adds an extra path segment"
+  },
+  {
+    "id": "6",
+    "name": "What? Why?",
+    "note": "? starts the query string"
+  },
+  {
+    "id": "7",
+    "name": "#1 Fan",
+    "note": "# starts the fragment - the browser never sends it"
+  },
+  {
+    "id": "8",
+    "name": "Київ",
+    "note": "non-ASCII - fine in a link, crashes a raw Location header"
+  }
+]

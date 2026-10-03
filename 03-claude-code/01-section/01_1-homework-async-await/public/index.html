@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>async / await</title>
+  <link rel="stylesheet" href="/public/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <span class="brand">async / await</span>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/messages">Messages</a>
+      <a href="/api/messages">API</a>
+    </nav>
+  </header>
+
+  <main>
+    <h1>async / await without .then()</h1>
+
+    <h2>Server: write and read a file</h2>
+    <ul>
+      <li><a href="/messages">/messages</a> &ndash; form (POST) writes to <code>data.json</code>, page (GET) reads it</li>
+      <li><a href="/api/messages">/api/messages</a> &ndash; the same data as JSON</li>
+    </ul>
+
+    <h2>Pitfalls (open each one, then read the code in <code>lib/pitfalls.js</code>)</h2>
+    <ol>
+      <li><a href="/pitfalls/forgot-await">Forgetting await</a></li>
+      <li><a href="/pitfalls/foreach">async inside forEach</a></li>
+      <li><a href="/pitfalls/sequential">Sequential when it could be parallel</a></li>
+      <li><a href="/pitfalls/try-catch">return vs return await in try/catch</a></li>
+      <li><a href="/pitfalls/all-settled">Promise.all vs Promise.allSettled</a></li>
+      <li><a href="/pitfalls/race-condition">Race condition (lost updates)</a></li>
+      <li><a href="/pitfalls/fire-and-forget">Fire-and-forget</a></li>
+      <li><a href="/pitfalls/blocking?mode=sync">Blocking code</a></li>
+      <li><a href="/pitfalls/crash">Error in a handler</a> &ndash; caught by the top-level try/catch in <code>index.js</code></li>
+    </ol>
+
+    <h2>Browser: fetch with async/await (<code>public/app.js</code>)</h2>
+    <div class="form-actions">
+      <button id="load">Load messages</button>
+      <button id="load-404" class="secondary">Fetch a missing URL</button>
+    </div>
+    <pre id="output">Click a button&hellip;</pre>
+  </main>
+
+  <script src="/public/app.js"></script>
+</body>
+</html>

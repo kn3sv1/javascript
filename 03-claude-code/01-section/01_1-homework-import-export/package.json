@@ -1,0 +1,18 @@
+{
+  "name": "homework-import-export-calculator",
+  "version": "1.0.0",
+  "description": "Simple HTTP calculator that shows async/await and import/export in Node.js",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "debug": "node --inspect index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}

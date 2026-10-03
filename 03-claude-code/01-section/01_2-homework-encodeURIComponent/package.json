@@ -1,0 +1,21 @@
+{
+  "name": "homework_encode_uri_component",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon --ignore data.json --ignore uploads/ index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "description": "Plain Node.js http server that shows why we need encodeURIComponent() and where it bites",
+  "dependencies": {
+    "multer": "^2.3.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}

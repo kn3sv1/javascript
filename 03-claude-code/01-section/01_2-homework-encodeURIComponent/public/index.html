@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>encodeURIComponent()</title>
+  <link rel="stylesheet" href="/public/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <span class="brand">encodeURIComponent()</span>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/people">People</a>
+      <a href="/files">Files</a>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Why we need encodeURIComponent()</h1>
+
+    <div class="explanation">
+      <p>Some characters have a <b>job</b> inside a URL:
+        <code>/</code> separates segments, <code>?</code> starts the query,
+        <code>&amp;</code> and <code>=</code> split parameters, <code>#</code> starts the fragment,
+        <code>%</code> starts an escape, <code>+</code> means a space in a query.</p>
+      <p>When a <b>user value</b> (a name, a search, a file name) contains one of them,
+        it changes the meaning of the URL. <code>encodeURIComponent(value)</code> turns those
+        characters into <code>%XX</code>, so the value stays one piece of data.</p>
+    </div>
+
+    <h2>The app (same data, links built ❌ without and ✅ with encoding)</h2>
+    <ul>
+      <li><a href="/people">/people</a> &ndash; names in a path segment and in a query string</li>
+      <li><a href="/files">/files</a> &ndash; uploaded file names in <code>&lt;img src&gt;</code>, links and a download header</li>
+    </ul>
+
+    <h2>Pitfalls (open each one, then read the code in <code>lib/pitfalls.js</code>)</h2>
+    <ol>
+      <li><a href="/pitfalls/query">Gluing values into a query string</a></li>
+      <li><a href="/pitfalls/encode-uri">encodeURI vs encodeURIComponent</a></li>
+      <li><a href="/pitfalls/path">Values inside a path segment</a></li>
+      <li><a href="/pitfalls/decode">Decoding: URIError, + vs %20, double encoding</a></li>
+      <li><a href="/pitfalls/headers">Values in HTTP headers (Location, Content-Disposition)</a></li>
+      <li><a href="/pitfalls/not-encoded">What encodeURIComponent does NOT do</a></li>
+    </ol>
+
+    <h2>Browser: fetch() with and without encoding (<code>public/app.js</code>)</h2>
+    <div class="form-actions">
+      <input type="text" id="value" value="Tom & Jerry + C++ #1">
+      <button id="send-raw" class="danger">❌ Send raw</button>
+      <button id="send-encoded">✅ Send encoded</button>
+    </div>
+    <pre id="output">Type something and click a button&hellip;</pre>
+  </main>
+
+  <script src="/public/app.js"></script>
+</body>
+</html>
