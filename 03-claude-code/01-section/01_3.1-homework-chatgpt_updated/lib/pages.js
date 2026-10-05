@@ -7,8 +7,8 @@ export function menu() {
   return `
     <nav class="menu">
       <a href="/">Home</a>
-      <a href="/angie">Angie</a>
-      <a href="/roma">Roma</a>
+      <a href="/people/angie">Angie</a>
+      <a href="/people/roma">Roma</a>
     </nav>
   `;
 }
@@ -54,14 +54,14 @@ export function homePage(res) {
           <img class="avatar" src="/uploads/people/angie/avatar.svg" alt="Angie">
           <h3>Angie</h3>
           <p>Loves nature, hiking and photography.</p>
-          <a class="button" href="/angie">View page →</a>
+          <a class="button" href="/people/angie">View page →</a>
         </article>
 
         <article class="card">
           <img class="avatar" src="/uploads/people/roma/avatar.svg" alt="Roma">
           <h3>Roma</h3>
           <p>Learning JavaScript and Node.js. Likes mountains and animals.</p>
-          <a class="button" href="/roma">View page →</a>
+          <a class="button" href="/people/roma">View page →</a>
         </article>
       </div>
     </section>

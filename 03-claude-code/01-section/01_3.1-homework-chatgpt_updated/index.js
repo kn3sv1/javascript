@@ -45,35 +45,16 @@ async function router(req, res) {
     return homePage(res);
   }
 
-  // http://localhost:3000/angie
-
-  // before
-  // if (pathname.startsWith("/angie")) {
-  //   return angiePage(res);
-  // }
-
-  // after
-  if (pathname.startsWith("/angie")) {
+  // <http://localhost:3000/people/angie>
+  // <http://localhost:3000/people/roma>
+  if (pathname.startsWith("/people/")) {
+    const slug = pathname.slice("/people/".length); // "/people/angie" → "angie"
     const people = await readPeople();
-    const person = people.find((p) => p.slug === "angie");
+    const person = people.find((p) => p.slug === slug);
 
-    if (!person) return notFoundPage(res);
-    return personPage(res, person);
-  }
-
-  // http://localhost:3000/roma
-
-  //before
-  // if (pathname.startsWith("/roma")) {
-  //   return romaPage(res);
-  // }
-
-  // after
-  if (pathname.startsWith("/roma")) {
-    const people = await readPeople();
-    const person = people.find((p) => p.slug === "roma");
-
-    if (!person) return notFoundPage(res);
+    if (!person) {
+      return notFoundPage(res); // e.g. /people/bob → no such person
+    }
     return personPage(res, person);
   }
 
