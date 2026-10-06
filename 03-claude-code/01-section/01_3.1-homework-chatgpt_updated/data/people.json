@@ -10,5 +10,11 @@
     "name": "Roma",
     "bio": "Learning JavaScript and Node.js. Likes mountains and animals.",
     "avatar": "/uploads/people/roma/avatar.svg"
+  },
+  {
+    "slug": "max",
+    "name": "Max",
+    "bio": "Just added from JSON!",
+    "avatar": "/uploads/people/roma/avatar.svg"
   }
 ]

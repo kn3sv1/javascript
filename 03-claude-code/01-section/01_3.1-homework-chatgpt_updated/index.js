@@ -5,8 +5,6 @@ import { serveStatic } from "./lib/staticFile.js";
 import {
   sendHtml,
   homePage,
-  angiePage,
-  romaPage,
   notFoundPage,
   personPage,
 } from "./lib/pages.js";
@@ -40,25 +38,26 @@ async function router(req, res) {
   }
   console.log("pathname: " + pathname);
 
+  const people = await readPeople();
+
   // all dynamic routes always go after static files.
   if (pathname === "/") {
-    return homePage(res);
+    return homePage(res, people);
   }
 
   // <http://localhost:3000/people/angie>
   // <http://localhost:3000/people/roma>
   if (pathname.startsWith("/people/")) {
     const slug = pathname.slice("/people/".length); // "/people/angie" → "angie"
-    const people = await readPeople();
     const person = people.find((p) => p.slug === slug);
 
     if (!person) {
-      return notFoundPage(res); // e.g. /people/bob → no such person
+      return notFoundPage(res, people); // e.g. /people/bob → no such person
     }
-    return personPage(res, person);
+    return personPage(res, person, people);
   }
 
-  notFoundPage(res);
+  notFoundPage(res, people);
 }
 
 const server = http.createServer(async (req, res) => {

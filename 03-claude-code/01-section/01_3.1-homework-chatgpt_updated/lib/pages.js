@@ -3,17 +3,21 @@ export function sendHtml(res, status, html) {
   res.end(html);
 }
 
-export function menu() {
+// here we use the people array and build links with map()
+export function menu(people) {
+  const links = people
+    .map((person) => `<a href="/people/${person.slug}">${person.name}</a>`)
+    .join("");
+
   return `
     <nav class="menu">
       <a href="/">Home</a>
-      <a href="/people/angie">Angie</a>
-      <a href="/people/roma">Roma</a>
+      ${links}
     </nav>
   `;
 }
 
-export function layout(title, content) {
+export function layout(title, content, people) {
   return `
     <!doctype html>
     <html>
@@ -23,7 +27,7 @@ export function layout(title, content) {
         <link rel="stylesheet" href="/public/style.css">
       </head>
       <body>
-        ${menu()}
+        ${menu(people)}
         <main>
           ${content}
         </main>
@@ -32,7 +36,7 @@ export function layout(title, content) {
   `;
 }
 
-export function homePage(res) {
+export function homePage(res, people) {
   sendHtml(
     res,
     200,
@@ -82,116 +86,122 @@ export function homePage(res) {
 
     <script src="/public/homepage.js"></script>
   `,
+  people
     ),
   );
 }
 
-export function angiePage(res) {
+// export function angiePage(res) {
+//   sendHtml(
+//     res,
+//     200,
+//     layout(
+//       "Angie",
+//       `
+//     <div class="profile">
+//       <img class="avatar" src="/uploads/people/angie/avatar.svg" alt="Angie">
+//       <div>
+//         <h1>Angie</h1>
+//         <p>Loves nature, hiking and photography.</p>
+//       </div>
+//     </div>
+
+//     <h2>Places I want to visit</h2>
+//     <table>
+//       <thead>
+//         <tr>
+//           <th>#</th>
+//           <th>Place</th>
+//           <th>Country</th>
+//           <th>Why</th>
+//         </tr>
+//       </thead>
+//       <tbody>
+//         <tr><td>1</td><td>Preikestolen</td><td>Norway</td><td>Amazing view over the fjord</td></tr>
+//         <tr><td>2</td><td>Yosemite</td><td>USA</td><td>Giant rocks and forests</td></tr>
+//         <tr><td>3</td><td>Salt Creek Falls</td><td>USA</td><td>Waterfall in the forest</td></tr>
+//       </tbody>
+//     </table>
+
+//     <h2>My photos</h2>
+//     <div class="gallery">
+//       <figure>
+//         <img src="/uploads/people/angie/fjord.jpg" alt="Fjord">
+//         <figcaption>Fjord in Norway</figcaption>
+//       </figure>
+//       <figure>
+//         <img src="/uploads/people/angie/waterfall.jpg" alt="Waterfall">
+//         <figcaption>Forest waterfall</figcaption>
+//       </figure>
+//       <figure>
+//         <img src="/uploads/people/angie/yosemite.jpg" alt="Yosemite">
+//         <figcaption>Yosemite valley</figcaption>
+//       </figure>
+//     </div>
+//   `,
+//     ),
+//   );
+// }
+
+// export function romaPage(res) {
+//   sendHtml(
+//     res,
+//     200,
+//     layout(
+//       "Roma",
+//       `
+//     <div class="profile">
+//       <img class="avatar" src="/uploads/people/roma/avatar.svg" alt="Roma">
+//       <div>
+//         <h1>Roma</h1>
+//         <p>Learning JavaScript and Node.js. Likes mountains and animals.</p>
+//       </div>
+//     </div>
+
+//     <h2>My trips</h2>
+//     <table>
+//       <thead>
+//         <tr>
+//           <th>Year</th>
+//           <th>Place</th>
+//           <th>Days</th>
+//           <th>Rating</th>
+//         </tr>
+//       </thead>
+//       <tbody>
+//         <tr><td>2023</td><td>Isle of Skye, Scotland</td><td>5</td><td>⭐⭐⭐⭐</td></tr>
+//         <tr><td>2024</td><td>Himalayas, Nepal</td><td>14</td><td>⭐⭐⭐⭐⭐</td></tr>
+//         <tr><td>2025</td><td>Safari, Kenya</td><td>7</td><td>⭐⭐⭐⭐⭐</td></tr>
+//       </tbody>
+//     </table>
+
+//     <h2>My photos</h2>
+//     <div class="gallery">
+//       <figure>
+//         <img src="/uploads/people/roma/mountain-road.jpg" alt="Mountain road">
+//         <figcaption>Road on Isle of Skye</figcaption>
+//       </figure>
+//       <figure>
+//         <img src="/uploads/people/roma/snow-camp.jpg" alt="Snow camp">
+//         <figcaption>Camp in the Himalayas</figcaption>
+//       </figure>
+//       <figure>
+//         <img src="/uploads/people/roma/lioness.jpg" alt="Lioness">
+//         <figcaption>Lioness on safari</figcaption>
+//       </figure>
+//     </div>
+//   `,
+//     ),
+//   );
+// }
+
+export function personPage(res, person, people) {
   sendHtml(
     res,
     200,
     layout(
-      "Angie",
+      person.name,
       `
-    <div class="profile">
-      <img class="avatar" src="/uploads/people/angie/avatar.svg" alt="Angie">
-      <div>
-        <h1>Angie</h1>
-        <p>Loves nature, hiking and photography.</p>
-      </div>
-    </div>
-
-    <h2>Places I want to visit</h2>
-    <table>
-      <thead>
-        <tr>
-          <th>#</th>
-          <th>Place</th>
-          <th>Country</th>
-          <th>Why</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td>1</td><td>Preikestolen</td><td>Norway</td><td>Amazing view over the fjord</td></tr>
-        <tr><td>2</td><td>Yosemite</td><td>USA</td><td>Giant rocks and forests</td></tr>
-        <tr><td>3</td><td>Salt Creek Falls</td><td>USA</td><td>Waterfall in the forest</td></tr>
-      </tbody>
-    </table>
-
-    <h2>My photos</h2>
-    <div class="gallery">
-      <figure>
-        <img src="/uploads/people/angie/fjord.jpg" alt="Fjord">
-        <figcaption>Fjord in Norway</figcaption>
-      </figure>
-      <figure>
-        <img src="/uploads/people/angie/waterfall.jpg" alt="Waterfall">
-        <figcaption>Forest waterfall</figcaption>
-      </figure>
-      <figure>
-        <img src="/uploads/people/angie/yosemite.jpg" alt="Yosemite">
-        <figcaption>Yosemite valley</figcaption>
-      </figure>
-    </div>
-  `,
-    ),
-  );
-}
-
-export function romaPage(res) {
-  sendHtml(
-    res,
-    200,
-    layout(
-      "Roma",
-      `
-    <div class="profile">
-      <img class="avatar" src="/uploads/people/roma/avatar.svg" alt="Roma">
-      <div>
-        <h1>Roma</h1>
-        <p>Learning JavaScript and Node.js. Likes mountains and animals.</p>
-      </div>
-    </div>
-
-    <h2>My trips</h2>
-    <table>
-      <thead>
-        <tr>
-          <th>Year</th>
-          <th>Place</th>
-          <th>Days</th>
-          <th>Rating</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td>2023</td><td>Isle of Skye, Scotland</td><td>5</td><td>⭐⭐⭐⭐</td></tr>
-        <tr><td>2024</td><td>Himalayas, Nepal</td><td>14</td><td>⭐⭐⭐⭐⭐</td></tr>
-        <tr><td>2025</td><td>Safari, Kenya</td><td>7</td><td>⭐⭐⭐⭐⭐</td></tr>
-      </tbody>
-    </table>
-
-    <h2>My photos</h2>
-    <div class="gallery">
-      <figure>
-        <img src="/uploads/people/roma/mountain-road.jpg" alt="Mountain road">
-        <figcaption>Road on Isle of Skye</figcaption>
-      </figure>
-      <figure>
-        <img src="/uploads/people/roma/snow-camp.jpg" alt="Snow camp">
-        <figcaption>Camp in the Himalayas</figcaption>
-      </figure>
-      <figure>
-        <img src="/uploads/people/roma/lioness.jpg" alt="Lioness">
-        <figcaption>Lioness on safari</figcaption>
-      </figure>
-    </div>
-  `,
-    ),
-  );
-}
-
-export function personPage(res, person) {
-  sendHtml(res, 200, layout(person.name, `
     <div class="profile">
       <img class="avatar" src="${person.avatar}" alt="${person.name}">
       <div>
@@ -199,10 +209,13 @@ export function personPage(res, person) {
         <p>${person.bio}</p>
       </div>
     </div>
-  `));
+  `,
+  people
+    ),
+  );
 }
 
-export function notFoundPage(res) {
+export function notFoundPage(res, people) {
   sendHtml(
     res,
     404,
@@ -211,5 +224,6 @@ export function notFoundPage(res) {
       `
     <h1 style="color: red">Page not found</h1>`,
     ),
+    people
   );
 }
