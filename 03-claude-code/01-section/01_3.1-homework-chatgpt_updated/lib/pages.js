@@ -37,6 +37,20 @@ export function layout(title, content, people) {
 }
 
 export function homePage(res, people) {
+  // ← 2. NEW: build the cards here, BEFORE sendHtml
+  const cards = people
+    .map(
+      (person) => `
+          <article class="card">
+          <img class="avatar" src="${person.avatar}" alt="${person.name}">
+          <h3>${person.name}</h3>
+          <p>${person.bio}</p>
+          <a class="button" href="/people/${person.slug}">View page →</a>
+        </article>
+  `,
+    )
+    .join("");
+
   sendHtml(
     res,
     200,
@@ -54,25 +68,15 @@ export function homePage(res, people) {
     <section id="team">
       <h2>Meet the team</h2>
       <div class="cards">
-        <article class="card">
-          <img class="avatar" src="/uploads/people/angie/avatar.svg" alt="Angie">
-          <h3>Angie</h3>
-          <p>Loves nature, hiking and photography.</p>
-          <a class="button" href="/people/angie">View page →</a>
-        </article>
-
-        <article class="card">
-          <img class="avatar" src="/uploads/people/roma/avatar.svg" alt="Roma">
-          <h3>Roma</h3>
-          <p>Learning JavaScript and Node.js. Likes mountains and animals.</p>
-          <a class="button" href="/people/roma">View page →</a>
-        </article>
+      <!-- ← 3. both <article>s replaced by this -->
+        ${cards}                    
       </div>
     </section>
 
     <section>
       <h2>What this site is built with</h2>
-      <ul class="features">
+      <!-- the rest stays the same -->
+      <ul class="features">         
         <li>🟢 <b>Node.js</b> — <code>http</code> server</li>
         <li>📄 <b>HTML</b> — template strings</li>
         <li>🎨 <b>CSS</b> — flexbox &amp; grid</li>
@@ -86,7 +90,7 @@ export function homePage(res, people) {
 
     <script src="/public/homepage.js"></script>
   `,
-  people
+      people,
     ),
   );
 }
@@ -210,7 +214,7 @@ export function personPage(res, person, people) {
       </div>
     </div>
   `,
-  people
+      people,
     ),
   );
 }
@@ -223,7 +227,7 @@ export function notFoundPage(res, people) {
       "Error",
       `
     <h1 style="color: red">Page not found</h1>`,
+      people,
     ),
-    people
   );
 }
