@@ -3,13 +3,59 @@
     "slug": "angie",
     "name": "Angie",
     "bio": "Loves nature, hiking and photography.",
-    "avatar": "/uploads/people/angie/avatar.svg"
+    "avatar": "/uploads/people/angie/avatar.svg",
+    "table": {
+      "title": "Places I want to visit",
+      "columns": ["#", "Place", "Country", "Why"],
+      "rows": [
+        ["1", "Preikestolen", "Norway", "Amazing view over the fjord"],
+        ["2", "Yosemite", "USA", "Giant rocks and forests"],
+        ["3", "Salt Creek Falls", "USA", "Waterfall in the forest"]
+      ]
+    },
+    "photos": [
+      {
+        "src": "/uploads/people/angie/fjord.jpg",
+        "caption": "Fjord in Norway"
+      },
+      {
+        "src": "/uploads/people/angie/waterfall.jpg",
+        "caption": "Forest waterfall"
+      },
+      {
+        "src": "/uploads/people/angie/yosemite.jpg",
+        "caption": "Yosemite valley"
+      }
+    ]
   },
   {
     "slug": "roma",
     "name": "Roma",
     "bio": "Learning JavaScript and Node.js. Likes mountains and animals.",
-    "avatar": "/uploads/people/roma/avatar.svg"
+    "avatar": "/uploads/people/roma/avatar.svg",
+    "table": {
+      "title": "My trips",
+      "columns": ["Year", "Place", "Days", "Rating"],
+      "rows": [
+        ["2023", "Isle of Skye, Scotland", "5", "⭐⭐⭐⭐"],
+        ["2024", "Himalayas, Nepal", "14", "⭐⭐⭐⭐⭐"],
+        ["2025", "Safari, Kenya", "7", "⭐⭐⭐⭐⭐"]
+      ]
+    },
+    "photos": [
+      {
+        "src": "/uploads/people/roma/mountain-road.jpg",
+        "caption": "Road on Isle of Skye"
+      },
+      {
+        "src": "/uploads/people/roma/snow-camp.jpg",
+        "caption": "Camp in the Himalayas"
+      },
+      {
+        "src": "/uploads/people/roma/lioness.jpg",
+        "caption": "Lioness on safari"
+      }
+    ]
   },
   {
     "slug": "max",

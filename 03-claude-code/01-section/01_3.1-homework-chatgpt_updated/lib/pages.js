@@ -41,7 +41,7 @@ export function homePage(res, people) {
   const cards = people
     .map(
       (person) => `
-          <article class="card">
+        <article class="card">
           <img class="avatar" src="${person.avatar}" alt="${person.name}">
           <h3>${person.name}</h3>
           <p>${person.bio}</p>
@@ -199,6 +199,63 @@ export function homePage(res, people) {
 //   );
 // }
 
+// builds an HTML table from { title, columns, rows }
+function personTable(table) {
+  // no table in JSON (like Max) → show nothing
+  if (!table) {
+    return "";
+  }
+
+  const headerCells = table.columns
+    .map((column) => `<th>${column}</th>`)
+    .join("");
+
+  const bodyRows = table.rows
+    .map((row) => {
+      const cells = row.map((cell) => `<td>${cell}</td>`).join("");
+      return `<tr>${cells}</tr>`;
+    })
+    .join("");
+
+  return `
+    <h2>${table.title}</h2>
+    <table>
+      <thead>
+        <tr>${headerCells}</tr>
+      </thead>
+      <tbody>
+        ${bodyRows}
+      </tbody>
+    </table>
+  `;
+}
+
+// builds a photo gallery from [{ src, caption }, ...]
+function personGallery(photos) {
+  // no photos in JSON (like Max) → show nothing
+  if (!photos || photos.length === 0) {
+    return "";
+  }
+
+  const figures = photos
+    .map(
+      (photo) => `
+      <figure>
+        <img src="${photo.src}" alt="${photo.caption}">
+        <figcaption>${photo.caption}</figcaption>
+      </figure>
+    `,
+    )
+    .join("");
+
+  return `
+    <h2>My photos</h2>
+    <div class="gallery">
+      ${figures}
+    </div>
+  `;
+}
+
 export function personPage(res, person, people) {
   sendHtml(
     res,
@@ -213,6 +270,10 @@ export function personPage(res, person, people) {
         <p>${person.bio}</p>
       </div>
     </div>
+
+    ${personTable(person.table)}
+
+    ${personGallery(person.photos)}
   `,
       people,
     ),
