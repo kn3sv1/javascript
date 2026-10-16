@@ -6,11 +6,31 @@
     "avatar": "/uploads/people/angie/avatar.svg",
     "table": {
       "title": "Places I want to visit",
-      "columns": ["#", "Place", "Country", "Why"],
+      "columns": [
+        "#",
+        "Place",
+        "Country",
+        "Why"
+      ],
       "rows": [
-        ["1", "Preikestolen", "Norway", "Amazing view over the fjord"],
-        ["2", "Yosemite", "USA", "Giant rocks and forests"],
-        ["3", "Salt Creek Falls", "USA", "Waterfall in the forest"]
+        [
+          "1",
+          "Preikestolen",
+          "Norway",
+          "Amazing view over the fjord"
+        ],
+        [
+          "2",
+          "Yosemite",
+          "USA",
+          "Giant rocks and forests"
+        ],
+        [
+          "3",
+          "Salt Creek Falls",
+          "USA",
+          "Waterfall in the forest"
+        ]
       ]
     },
     "photos": [
@@ -35,11 +55,31 @@
     "avatar": "/uploads/people/roma/avatar.svg",
     "table": {
       "title": "My trips",
-      "columns": ["Year", "Place", "Days", "Rating"],
+      "columns": [
+        "Year",
+        "Place",
+        "Days",
+        "Rating"
+      ],
       "rows": [
-        ["2023", "Isle of Skye, Scotland", "5", "⭐⭐⭐⭐"],
-        ["2024", "Himalayas, Nepal", "14", "⭐⭐⭐⭐⭐"],
-        ["2025", "Safari, Kenya", "7", "⭐⭐⭐⭐⭐"]
+        [
+          "2023",
+          "Isle of Skye, Scotland",
+          "5",
+          "⭐⭐⭐⭐"
+        ],
+        [
+          "2024",
+          "Himalayas, Nepal",
+          "14",
+          "⭐⭐⭐⭐⭐"
+        ],
+        [
+          "2025",
+          "Safari, Kenya",
+          "7",
+          "⭐⭐⭐⭐⭐"
+        ]
       ]
     },
     "photos": [
@@ -61,6 +101,24 @@
     "slug": "max",
     "name": "Max",
     "bio": "Just added from JSON!",
+    "avatar": "/uploads/people/roma/avatar.svg"
+  },
+  {
+    "slug": "karen",
+    "name": "Karen",
+    "bio": "Testing admin route!",
+    "avatar": "/uploads/people/roma/avatar.svg"
+  },
+  {
+    "slug": "george",
+    "name": "George",
+    "bio": "Loves gaming and football",
+    "avatar": "/uploads/people/roma/avatar.svg"
+  },
+  {
+    "slug": "maria",
+    "name": "Maria",
+    "bio": "Added form data with POST request.",
     "avatar": "/uploads/people/roma/avatar.svg"
   }
 ]

@@ -16,6 +16,12 @@ async function readData() {
   }
 }
 
+async function saveData(data) {
+  const entries = await readData();
+  entries.push(data);
+  await fs.writeFile(DB_PATH, JSON.stringify(entries, null, 2));
+}
+
 async function readPeople() {
   try {
     const content = await fs.readFile(PEOPLE_PATH, "utf-8");
@@ -28,10 +34,8 @@ async function readPeople() {
   }
 }
 
-async function saveData(data) {
-  const entries = await readData();
-  entries.push(data);
-  await fs.writeFile(DB_PATH, JSON.stringify(entries, null, 2));
+async function savePeople(people) {
+  await fs.writeFile(PEOPLE_PATH, JSON.stringify(people, null, 2));
 }
 
-export { saveData, readData, readPeople };
+export { saveData, readData, readPeople, savePeople };

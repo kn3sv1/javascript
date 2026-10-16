@@ -7,8 +7,10 @@ import {
   homePage,
   notFoundPage,
   personPage,
+  adminPage,
 } from "./lib/pages.js";
-import { readPeople } from "./lib/database.js";
+import { readPeople, savePeople } from "./lib/database.js";
+import { getFormData } from "./lib/formData.js";
 
 console.log(await readPeople());
 
@@ -55,6 +57,41 @@ async function router(req, res) {
       return notFoundPage(res, people); // e.g. /people/bob → no such person
     }
     return personPage(res, person, people);
+  }
+
+  // form from the admin page is sent here
+  if (pathname === "/admin/people" && req.method === "POST") {
+    const formData = await getFormData(req, res);
+
+    // trim() removes spaces at the start and end
+    const name = (formData.name || "").trim();
+    const slug = (formData.slug || "").trim().toLowerCase();
+    const bio = (formData.bio || "").trim();
+    const avatar =
+      (formData.avatar || "").trim() || "/uploads/people/roma/avatar.svg";
+
+    // check the data on the server too
+    if (!name || !slug || !bio) {
+      return adminPage(res, people, "Name, slug and bio are required.");
+    }
+    if (!/^[a-z0-9-]+$/.test(slug)) {
+      return adminPage(res, people, "Slug can only use a-z, 0-9 and -");
+    }
+    if (people.some((p) => p.slug === slug)) {
+      return adminPage(res, people, `Slug "${slug}" is already taken.`);
+    }
+
+    people.push({ slug, name, bio, avatar });
+    await savePeople(people);
+
+    // send the browser back to /admin
+    res.writeHead(303, { Location: "/admin" });
+    return res.end();
+  }
+
+  // http://localhost:3000/admin
+  if (pathname === "/admin") {
+    return adminPage(res, people);
   }
 
   notFoundPage(res, people);

@@ -13,6 +13,7 @@ export function menu(people) {
     <nav class="menu">
       <a href="/">Home</a>
       ${links}
+      <a href="/admin">Admin</a>
     </nav>
   `;
 }
@@ -274,6 +275,68 @@ export function personPage(res, person, people) {
     ${personTable(person.table)}
 
     ${personGallery(person.photos)}
+  `,
+      people,
+    ),
+  );
+}
+
+export function adminPage(res, people, error = "") {
+  const items = people
+    .map(
+      (person) => `
+      <li class="admin-item">
+        <img class="admin-avatar" src="${person.avatar}" alt="${person.name}">
+        <div class="admin-info">
+          <span class="admin-name">${person.name}</span>
+          <span class="admin-slug">/people/${person.slug}</span>
+        </div>
+        <a class="button" href="/people/${person.slug}">View page →</a>
+      </li>
+    `,
+    )
+    .join("");
+
+  // only show the red box if there is an error message
+  const errorHtml = error ? `<p class="form-error">${error}</p>` : "";
+
+  sendHtml(
+    res,
+    error ? 400 : 200, // 400 = bad request when the form was wrong.
+    layout(
+      "Admin",
+      `
+    <div class="admin-header">
+      <h1>Admin</h1>
+      <span class="admin-count">${people.length} people</span>
+    </div>
+    <ul class="admin-list">
+      ${items}
+    </ul>
+
+    <h2>Add a new person</h2>
+    ${errorHtml}
+    <form class="admin-form" method="POST" action="/admin/people">
+      <label>
+        Name
+        <input type="text" name="name" required>
+      </label>
+      <label>
+        Slug (used in the URL: /people/slug)
+        <input type="text" name="slug" required pattern="[a-z0-9-]+"
+               placeholder="e.g. george">
+      </label>
+      <label>
+        Bio
+        <textarea name="bio" rows="3" required></textarea>
+      </label>
+      <label>
+        Avatar URL
+        <input type="text" name="avatar"
+               value="/uploads/people/roma/avatar.svg">
+      </label>
+      <button class="button" type="submit">Add person</button>
+    </form>
   `,
       people,
     ),
