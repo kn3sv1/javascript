@@ -242,4 +242,36 @@ tbody tr:nth-child(even) {
   max-width: 500px;
 }
 
+/* table inputs in the admin form */
+.table-fieldset {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 12px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.table-fieldset legend {
+  font-weight: bold;
+  padding: 0 6px;
+}
+.table-hint {
+  margin: 4px 0 0;
+  color: #777;
+  font-size: 14px;
+}
+.table-inputs {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 inputs per line = 1 table row */
+  gap: 6px;
+}
+.table-inputs input {
+  font: inherit;
+  padding: 6px 8px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  min-width: 0; /* lets inputs shrink inside the grid */
+}
+
+
 

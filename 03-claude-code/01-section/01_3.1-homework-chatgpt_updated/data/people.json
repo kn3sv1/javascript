@@ -120,5 +120,46 @@
     "name": "Maria",
     "bio": "Added form data with POST request.",
     "avatar": "/uploads/people/roma/avatar.svg"
+  },
+  {
+    "slug": "peter",
+    "name": "Peter",
+    "bio": "Added via Postman",
+    "avatar": "/uploads/people/roma/avatar.svg"
+  },
+  {
+    "slug": "lena",
+    "name": "Lena",
+    "bio": "Loves hiking and nature.",
+    "avatar": "/uploads/people/roma/avatar.svg",
+    "table": {
+      "title": "My hikes in Cyprus",
+      "columns": [
+        "Year",
+        "Trail",
+        "Km",
+        "Rating"
+      ],
+      "rows": [
+        [
+          "2020",
+          "Aphrodite and Adonis Trail Loop",
+          "7.9 km",
+          "⭐⭐⭐⭐⭐"
+        ],
+        [
+          "2023",
+          "Atalante Trail (Troodos)",
+          "13.5 km",
+          "⭐⭐⭐"
+        ],
+        [
+          "2024",
+          "Artemis Nature Trail",
+          "8 km",
+          "⭐⭐⭐"
+        ]
+      ]
+    }
   }
 ]

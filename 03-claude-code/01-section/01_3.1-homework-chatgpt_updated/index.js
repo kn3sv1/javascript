@@ -81,7 +81,35 @@ async function router(req, res) {
       return adminPage(res, people, `Slug "${slug}" is already taken.`);
     }
 
-    people.push({ slug, name, bio, avatar });
+    // always get an array, even if the form sent only one value (a string)
+    const toArray = (value) => [].concat(value || []).map((v) => v.trim());
+
+    const tableTitle = (formData.tableTitle || "").trim();
+    const columns = toArray(formData.column);
+
+    // [row0, row1, row2] → each one is an array of 4 cells
+    const rows = [0, 1, 2]
+      .map((r) => toArray(formData[`row${r}`]))
+      .filter((row) => row.some((cell) => cell !== "")); // skip empty rows
+
+    let table; // stays undefined if no table was filled in
+
+    if (tableTitle) {
+      if (columns.some((column) => column === "")) {
+        return adminPage(res, people, "Please fill in all 4 column names.");
+      }
+      if (rows.length === 0) {
+        return adminPage(res, people, "Please fill in at least one row.");
+      }
+      table = { title: tableTitle, columns, rows };
+    }
+
+    const newPerson = { slug, name, bio, avatar };
+    if (table) {
+      newPerson.table = table;
+    }
+
+    people.push(newPerson);
     await savePeople(people);
 
     // send the browser back to /admin

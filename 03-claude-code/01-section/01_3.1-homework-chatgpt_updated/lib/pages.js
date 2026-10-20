@@ -300,6 +300,31 @@ export function adminPage(res, people, error = "") {
   // only show the red box if there is an error message
   const errorHtml = error ? `<p class="form-error">${error}</p>` : "";
 
+  const COLUMNS = 4;
+  const ROWS = 3;
+
+  // [0, 1, 2, 3] - one number per column
+  const columnNumbers = [...Array(COLUMNS).keys()];
+  const rowNumbers = [...Array(ROWS).keys()];
+
+  const columnInputs = columnNumbers
+    .map(
+      (c) => `<input type="text" name="column" placeholder="Column ${c + 1}">`,
+    )
+    .join("");
+
+  const rowInputs = rowNumbers
+    .map((r) => {
+      const cells = columnNumbers
+        .map(
+          (c) =>
+            `<input type="text" name="row${r}" placeholder="Row ${r + 1}, cell ${c + 1}">`,
+        )
+        .join("");
+      return cells;
+    })
+    .join("");
+
   sendHtml(
     res,
     error ? 400 : 200, // 400 = bad request when the form was wrong.
@@ -335,6 +360,27 @@ export function adminPage(res, people, error = "") {
         <input type="text" name="avatar"
                value="/uploads/people/roma/avatar.svg">
       </label>
+
+      <fieldset class="table-fieldset">
+        <legend>Table (optional)</legend>
+
+        <label>
+          Table title
+          <input type="text" name="tableTitle"
+                 placeholder="e.g. Places I want to visit">
+        </label>
+
+        <p class="table-hint">Column names</p>
+        <div class="table-inputs">
+          ${columnInputs}
+        </div>
+
+        <p class="table-hint">Rows (leave a row empty to skip it)</p>
+        <div class="table-inputs">
+          ${rowInputs}
+        </div>
+      </fieldset>
+
       <button class="button" type="submit">Add person</button>
     </form>
   `,
