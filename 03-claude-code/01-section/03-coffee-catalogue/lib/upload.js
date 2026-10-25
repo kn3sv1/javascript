@@ -1,21 +1,18 @@
 import multer from "multer";
 import path from "node:path";
-
-const UPLOADS_DIR = path.join(import.meta.dirname, "..", "uploads");
+import { UPLOAD_DIR } from "./config.js";
 
 function makeStorage(prefix) {
   return multer.diskStorage({
-    destination: (req, file, cb) => cb(null, UPLOADS_DIR),
+    destination: (req, file, cb) => cb(null, UPLOAD_DIR),
     filename: (req, file, cb) => {
       cb(null, `${prefix}/${file.originalname}`);
     },
   });
 }
 
-const catUpload = multer({ storage: makeStorage("cats") });
-const doctorUpload = multer({ storage: makeStorage("doctors") });
+// directory where we store file and we return back path with this directory 
+const coffeeUpload = multer({ storage: makeStorage("coffee") });
 
-// file - is name in FORM HTML
-export const uploadCatPhoto = catUpload.single("file");
-export const uploadDoctorPhoto = doctorUpload.single("file");
-export { UPLOADS_DIR };
+export const uploadCoffee = coffeeUpload.single("file");
+export const COFFEE_UPLOAD_DIR = path.join(UPLOAD_DIR, "coffee");

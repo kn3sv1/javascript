@@ -58,3 +58,10 @@ export function notFoundPage(res) {
     ),
   );
 }
+
+export function showErrorPage(res, err) {
+  res.writeHead(400, { "Content-Type": "text/html" });
+  res.end(`ErrorPage ${err}`);
+}
+
+
