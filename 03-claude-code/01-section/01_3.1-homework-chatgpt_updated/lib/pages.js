@@ -325,6 +325,11 @@ export function adminPage(res, people, error = "") {
     })
     .join("");
 
+  // one <option> per person for the dropdown
+  const personOptions = people
+    .map((person) => `<option value="${person.slug}">${person.name}</option>`)
+    .join("");
+
   sendHtml(
     res,
     error ? 400 : 200, // 400 = bad request when the form was wrong.
@@ -382,6 +387,27 @@ export function adminPage(res, people, error = "") {
       </fieldset>
 
       <button class="button" type="submit">Add person</button>
+    </form>
+
+    <h2>Upload a photo</h2>
+    <form class="admin-form" method="POST" action="/admin/upload"
+          enctype="multipart/form-data">
+      <label>
+        Person
+        <select name="slug" required>
+          <option value="">-- choose a person --</option>
+          ${personOptions}
+        </select>
+      </label>
+      <label>
+        Photo
+        <input type="file" name="photo" accept="image/*" required>
+      </label>
+      <label>
+        Caption
+        <input type="text" name="caption" placeholder="e.g. Sunset in Norway">
+      </label>
+      <button class="button" type="submit">Upload photo</button>
     </form>
   `,
       people,

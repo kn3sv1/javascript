@@ -2,14 +2,21 @@ import http from "node:http";
 import fs from "node:fs";
 import path from "node:path";
 import { serveStatic } from "./lib/staticFile.js";
-import { sendHtml, homePage, angiePage, romaPage } from "./lib/pages.js";
+import {
+  sendHtml,
+  homePage,
+  angiePage,
+  romaPage,
+  notFoundPage,
+} from "./lib/pages.js";
+import { readPeople } from "./lib/database.js";
 
+console.log( await readPeople());
 
 const PORT = 3000;
 const PUBLIC_DIR = path.join(import.meta.dirname, "public");
 const UPLOADS_DIR = path.join(import.meta.dirname, "uploads");
 console.log("UPLOADS_DIR: " + UPLOADS_DIR);
-
 
 function router(req, res) {
   let parsed;
@@ -32,17 +39,21 @@ function router(req, res) {
   }
   console.log("pathname: " + pathname);
 
+  // all dynamic routes always go after static files.
+  if (pathname === "/") {
+    return homePage(res);
+  }
+
   // http://localhost:3000/angie
   if (pathname.startsWith("/angie")) {
-      return angiePage(res);
+    return angiePage(res);
   }
   // http://localhost:3000/roma
   if (pathname.startsWith("/roma")) {
     return romaPage(res);
   }
 
-  // for rest pages better to show 404 page but it is ok for now
-  homePage(res);
+  notFoundPage(res);
 }
 
 const server = http.createServer((req, res) => {

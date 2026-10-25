@@ -1,0 +1,24 @@
+[
+  {
+    "id": 1,
+    "name": "Iced Latte",
+    "isPopular": true,
+    "ingredients": [
+      "ice",
+      "milk",
+      "espresso"
+    ],
+    "photo": "/images/coffee/ice-latte.png"
+  },
+  {
+    "id": 2,
+    "name": "Iced Americano",
+    "isPopular": true,
+    "ingredients": [
+      "ice",
+      "cold water",
+      "espresso"
+    ],
+    "photo": "/images/coffee/ice-americano.png"
+  }
+]

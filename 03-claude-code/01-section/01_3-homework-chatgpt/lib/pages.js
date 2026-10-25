@@ -1,9 +1,7 @@
-
 export function sendHtml(res, status, html) {
   res.writeHead(status, { "Content-Type": "text/html; charset=utf-8" });
   res.end(html);
 }
-
 
 export function menu() {
   return `
@@ -35,7 +33,12 @@ export function layout(title, content) {
 }
 
 export function homePage(res) {
-  sendHtml(res, 200, layout("Home", `
+  sendHtml(
+    res,
+    200,
+    layout(
+      "Home",
+      `
     <section class="hero">
       <div class="hero-text">
         <h1>Welcome to our little website</h1>
@@ -78,12 +81,18 @@ export function homePage(res) {
     </footer>
 
     <script src="/public/homepage.js"></script>
-  `));
+  `,
+    ),
+  );
 }
 
-
 export function angiePage(res) {
-  sendHtml(res, 200, layout("Angie", `
+  sendHtml(
+    res,
+    200,
+    layout(
+      "Angie",
+      `
     <div class="profile">
       <img class="avatar" src="/uploads/people/angie/avatar.svg" alt="Angie">
       <div>
@@ -124,12 +133,18 @@ export function angiePage(res) {
         <figcaption>Yosemite valley</figcaption>
       </figure>
     </div>
-  `));
+  `,
+    ),
+  );
 }
 
-
 export function romaPage(res) {
-  sendHtml(res, 200, layout("Roma", `
+  sendHtml(
+    res,
+    200,
+    layout(
+      "Roma",
+      `
     <div class="profile">
       <img class="avatar" src="/uploads/people/roma/avatar.svg" alt="Roma">
       <div>
@@ -170,5 +185,19 @@ export function romaPage(res) {
         <figcaption>Lioness on safari</figcaption>
       </figure>
     </div>
-  `));
+  `,
+    ),
+  );
+}
+
+export function notFoundPage(res) {
+  sendHtml(
+    res,
+    404,
+    layout(
+      "Error",
+      `
+    <h1 style="color: red">Page not found</h1>`,
+    ),
+  );
 }

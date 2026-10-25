@@ -1,0 +1,14 @@
+[
+  {
+    "slug": "angie",
+    "name": "Angie",
+    "bio": "Loves nature, hiking and photography.",
+    "avatar": "/uploads/people/angie/avatar.svg"
+  },
+  {
+    "slug": "roma",
+    "name": "Roma",
+    "bio": "Learning JavaScript and Node.js. Likes mountains and animals.",
+    "avatar": "/uploads/people/roma/avatar.svg"
+  }
+]
