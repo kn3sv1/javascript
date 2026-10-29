@@ -1,4 +1,4 @@
-import { layout } from "./layout.js";
+import { layout } from "./layout-modern.js";
 
 export function romaView({ name, color, education }) {
   const content = `
