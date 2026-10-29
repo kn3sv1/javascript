@@ -33,7 +33,7 @@ function findRouteSimple(method, pathname) {
 export function handleRequest(req, res) {
   // we want to parse the URL to extract the path name.
   const url = new URL(req.url, `http://${req.headers.host}`);
-  const route = findRouteSimple(req.method, url.pathname);
+  const route = findRoute(req.method, url.pathname);
 
   // if we didn't find router from our config that matches URL in browser
   if (!route) {

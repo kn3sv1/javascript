@@ -1,6 +1,7 @@
 import { getUser, getUsers } from "./controllers/users.js";
 import { getProducts } from "./controllers/products.js";
 import { getAngieInfo } from "./controllers/angie.js";
+import { getRomaInfo } from "./controllers/roma.js";
 
 export const routes = [
   {
@@ -22,5 +23,10 @@ export const routes = [
     method: "GET",
     path: "/angie",
     handler: getAngieInfo,
+  },
+    {
+    method: "GET",
+    path: "/roma",
+    handler: getRomaInfo,
   },
 ];
