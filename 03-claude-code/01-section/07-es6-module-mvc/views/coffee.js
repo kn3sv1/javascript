@@ -18,7 +18,8 @@ export function coffeeView(coffee) {
         ${popular}
         <p>${item.description}</p>
         <p class="price">$${item.price}</p>
-        <small>Photo: ${item.photo_credit.author}</small>
+        <small>Photo: ${item.photo_credit.author}</small><br />
+        <small>Category: ${item.category}</small><br />
         <a href="/coffee/${item.id}">${item.name}</a>
       </div>
     `;
@@ -49,6 +50,12 @@ export function coffeeView(coffee) {
     </style>
 
     <h1>Coffee Catalogue</h1>
+    <p>
+      <a href="/coffee">All</a> |
+      <a href="/coffee?category=espresso">Espresso</a> |
+      <a href="/coffee?category=milk">With milk</a> |
+      <a href="/coffee?category=dessert">Dessert</a> |
+    </p>
     <div class="cards">
       ${cards}
     </div>

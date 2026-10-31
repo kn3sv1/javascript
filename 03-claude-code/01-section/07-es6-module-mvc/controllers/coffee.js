@@ -1,9 +1,20 @@
-import { getAll, getById } from "../repositories/coffeeRepository.js";
+import { getAll, getById, getByCategory } from "../repositories/coffeeRepository.js";
 import { coffeeView } from "../views/coffee.js";
 import { coffeeDetailView } from "../views/coffeeDetail.js";
 
 export async function getCoffee(req, res) {
-  const coffee = await getAll();
+    const url = new URL(req.url, `http://${req.headers.host}`);
+  const category = url.searchParams.get("category");
+    // 2. Get coffees: filtered or all
+  let coffee;
+  if (category) {
+    coffee = await getByCategory(category);
+  } else {
+    coffee = await getAll();
+  }
+
+
+  // const coffee = await getAll();
 
   //   res.statusCode = 200;
   //   res.setHeader("Content-Type", "application/json; charset=utf-8");
