@@ -19,6 +19,7 @@ export function coffeeView(coffee) {
         <p>${item.description}</p>
         <p class="price">$${item.price}</p>
         <small>Photo: ${item.photo_credit.author}</small>
+        <a href="/coffee/${item.id}">${item.name}</a>
       </div>
     `;
   }
@@ -53,5 +54,5 @@ export function coffeeView(coffee) {
     </div>
   `;
 
-  return layout({ title: "Coffee Catalogue", content });
+  return layout({ title: "Coffee", content });
 }

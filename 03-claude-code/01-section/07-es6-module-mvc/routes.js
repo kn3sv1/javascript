@@ -2,7 +2,7 @@ import { getUser, getUsers } from "./controllers/users.js";
 import { getProducts } from "./controllers/products.js";
 import { getAngieInfo } from "./controllers/angie.js";
 import { getRomaInfo } from "./controllers/roma.js";
-import { getCoffee } from "./controllers/coffee.js";
+import { getCoffee, getCoffeeDetail } from "./controllers/coffee.js";
 
 export const routes = [
   {
@@ -32,7 +32,12 @@ export const routes = [
   },
   {
     method: "GET",
-    path: "/coffee-catalogue",
+    path: "/coffee",
     handler: getCoffee,
+  },
+    {
+    method: "GET",
+    path: "/coffee/:id",
+    handler: getCoffeeDetail,
   },
 ];

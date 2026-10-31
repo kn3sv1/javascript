@@ -8,7 +8,7 @@ function findRoute(method, pathname) {
     const routeParts = route.path.split("/");
     const pathParts = pathname.split("/");
 
-    console.log("routeParts:", routeParts, "pathParts:", pathParts);
+    //console.log("routeParts:", routeParts, "pathParts:", pathParts);
 
     if (routeParts.length !== pathParts.length) {
       return false;
