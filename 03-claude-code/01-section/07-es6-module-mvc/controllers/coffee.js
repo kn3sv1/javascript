@@ -1,12 +1,19 @@
-import { getAll, getById, getByCategory } from "../repositories/coffeeRepository.js";
+import {
+  getAll,
+  getById,
+  getByCategory,
+} from "../repositories/coffeeRepository.js";
 import { coffeeView } from "../views/coffee.js";
 import { coffeeDetailView } from "../views/coffeeDetail.js";
-import {getCoffeeWithSpecialOffer} from "../services/coffeeSpecialOffer.js";
+import {
+  getCoffeeWithSpecialOffer,
+  getCoffeeOnlyWithSpecialOffer,
+} from "../services/coffeeSpecialOffer.js";
 
 export async function getCoffee(req, res) {
-    const url = new URL(req.url, `http://${req.headers.host}`);
+  const url = new URL(req.url, `http://${req.headers.host}`);
   const category = url.searchParams.get("category");
-    // 2. Get coffees: filtered or all
+  // 2. Get coffees: filtered or all
   let coffee;
   if (category) {
     coffee = await getByCategory(category);
@@ -15,8 +22,18 @@ export async function getCoffee(req, res) {
   }
 
   // we create new array with special
-  coffee = getCoffeeWithSpecialOffer(coffee);
+  // we can comment this out and disable discount and nothing will break
+  // on the website becaus in view we check if property exists.
+  //coffee = getCoffeeWithSpecialOffer(coffee);
 
+  const specialOffer = url.searchParams.get("special_offer");
+  if (specialOffer) {
+    // if in URL we passed: special_offer
+    coffee = getCoffeeOnlyWithSpecialOffer(coffee);
+  } else {
+    // by default
+    coffee = getCoffeeWithSpecialOffer(coffee);
+  }
 
   // const coffee = await getAll();
 

@@ -64,6 +64,7 @@ export function coffeeView(coffee) {
       <a href="/coffee?category=espresso">Espresso</a> |
       <a href="/coffee?category=milk">With milk</a> |
       <a href="/coffee?category=dessert">Dessert</a> |
+      <a href="/coffee?special_offer=1">Special Offers</a>
     </p>
     <div class="cards">
       ${cards}
