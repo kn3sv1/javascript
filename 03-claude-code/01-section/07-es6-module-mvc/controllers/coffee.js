@@ -1,6 +1,7 @@
 import { getAll, getById, getByCategory } from "../repositories/coffeeRepository.js";
 import { coffeeView } from "../views/coffee.js";
 import { coffeeDetailView } from "../views/coffeeDetail.js";
+import {getCoffeeWithSpecialOffer} from "../services/coffeeSpecialOffer.js";
 
 export async function getCoffee(req, res) {
     const url = new URL(req.url, `http://${req.headers.host}`);
@@ -12,6 +13,9 @@ export async function getCoffee(req, res) {
   } else {
     coffee = await getAll();
   }
+
+  // we create new array with special
+  coffee = getCoffeeWithSpecialOffer(coffee);
 
 
   // const coffee = await getAll();

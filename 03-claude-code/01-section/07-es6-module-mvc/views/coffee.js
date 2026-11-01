@@ -10,14 +10,20 @@ export function coffeeView(coffee) {
       popular = "<p><b>⭐ Popular</b></p>";
     }
 
+    let specialOffer = "";
+    if (item.special_offer) {
+      specialOffer = " special-offer";
+    }
+
     // to empty string card we append each card in for - each
     cards += `
-      <div class="card">
+      <div class="card ${specialOffer}">
         <img src="${item.photo}" alt="${item.name}" />
         <h3>${item.name}</h3>
         ${popular}
         <p>${item.description}</p>
         <p class="price">$${item.price}</p>
+        <small>Discount:${item.discount_percent}%</small><br />
         <small>Photo: ${item.photo_credit.author}</small><br />
         <small>Category: ${item.category}</small><br />
         <a href="/coffee/${item.id}">${item.name}</a>
@@ -47,6 +53,9 @@ export function coffeeView(coffee) {
         font-size: 20px;
         font-weight: bold;
       }
+      .special-offer {
+        background-color: #f8f67d;
+      }  
     </style>
 
     <h1>Coffee Catalogue</h1>
