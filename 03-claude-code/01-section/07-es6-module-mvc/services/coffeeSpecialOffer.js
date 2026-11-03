@@ -8,10 +8,19 @@ export function getCoffeeWithSpecialOffer(coffees) {
   return updatedCoffees;
 }
 
+export function getCoffeeWithOverTenPercent(coffees) {
+  const updatedCoffees = coffees.map((coffee) => ({
+    ...coffee,
+    discount_percent_over_10: coffee.discount_percent > 10,
+  }));
+
+  return updatedCoffees;
+}
+
 export function getCoffeeOnlyWithSpecialOffer(coffees) {
   const updatedCoffees = [];
   coffees.forEach((coffee) => {
-    const specialOffer = coffee.discount_percent > 5;
+    const specialOffer = coffee.discount_percent >= 5;
     if (specialOffer) {
       updatedCoffees.push({
         ...coffee,

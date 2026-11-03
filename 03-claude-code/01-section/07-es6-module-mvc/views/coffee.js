@@ -11,8 +11,10 @@ export function coffeeView(coffee) {
     }
 
     let specialOffer = "";
-    if (item.special_offer) {
-      specialOffer = " special-offer";
+    if (item.discount_percent_over_10) {
+      specialOffer = " discount_percent_over_10"; // green
+    } else if (item.special_offer) {
+      specialOffer = " special-offer"; // yellow
     }
 
     // to empty string card we append each card in for - each
@@ -55,7 +57,10 @@ export function coffeeView(coffee) {
       }
       .special-offer {
         background-color: #f8f67d;
-      }  
+      }
+      .discount_percent_over_10 {
+        background-color: #aeeb34;
+      }    
     </style>
 
     <h1>Coffee Catalogue</h1>

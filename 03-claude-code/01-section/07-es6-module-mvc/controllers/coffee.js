@@ -8,6 +8,7 @@ import { coffeeDetailView } from "../views/coffeeDetail.js";
 import {
   getCoffeeWithSpecialOffer,
   getCoffeeOnlyWithSpecialOffer,
+  getCoffeeWithOverTenPercent
 } from "../services/coffeeSpecialOffer.js";
 
 export async function getCoffee(req, res) {
@@ -34,6 +35,8 @@ export async function getCoffee(req, res) {
     // by default
     coffee = getCoffeeWithSpecialOffer(coffee);
   }
+
+  coffee = getCoffeeWithOverTenPercent(coffee);
 
   // const coffee = await getAll();
 
