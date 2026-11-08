@@ -1,0 +1,439 @@
+[
+  {
+    "id": 1,
+    "name": "Moussaka",
+    "greek_name": "Μουσακάς",
+    "slug": "moussaka",
+    "photo": "/images/greek_food/moussaka.jpg",
+    "description": "Layers of fried eggplant, potatoes and spiced minced meat, topped with creamy béchamel sauce and baked until golden.",
+    "category": "main",
+    "price": 13.5,
+    "discount_percent": 10,
+    "is_popular": true,
+    "is_vegetarian": false,
+    "is_available": true,
+    "weight_g": 400,
+    "calories": 650,
+    "rating": 4.8,
+    "tags": [
+      "baked",
+      "eggplant",
+      "minced meat"
+    ],
+    "photo_credit": {
+      "author": "Robert Kindermann aka RobertK",
+      "license": "CC BY-SA 2.5",
+      "source": "https://commons.wikimedia.org/wiki/File:MussakasMeMelitsanesKePatates01.JPG"
+    }
+  },
+  {
+    "id": 2,
+    "name": "Souvlaki",
+    "greek_name": "Σουβλάκι",
+    "slug": "souvlaki",
+    "photo": "/images/greek_food/souvlaki.jpg",
+    "description": "Juicy pieces of marinated pork grilled on skewers, served with pita, tomatoes, onions and lemon.",
+    "category": "street food",
+    "price": 9.5,
+    "discount_percent": 0,
+    "is_popular": true,
+    "is_vegetarian": false,
+    "is_available": true,
+    "weight_g": 300,
+    "calories": 480,
+    "rating": 4.7,
+    "tags": [
+      "grilled",
+      "pork",
+      "skewers"
+    ],
+    "photo_credit": {
+      "author": "EntaXoyas",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Ελληνικό_Σουβλάκι_-_panoramio.jpg"
+    }
+  },
+  {
+    "id": 3,
+    "name": "Gyros Pita",
+    "greek_name": "Γύρος",
+    "slug": "gyros",
+    "photo": "/images/greek_food/gyros.jpg",
+    "description": "Thin slices of meat roasted on a vertical spit, wrapped in warm pita with tzatziki, tomato, onion and fries.",
+    "category": "street food",
+    "price": 7,
+    "discount_percent": 15,
+    "is_popular": true,
+    "is_vegetarian": false,
+    "is_available": true,
+    "weight_g": 350,
+    "calories": 600,
+    "rating": 4.9,
+    "tags": [
+      "pita",
+      "street food",
+      "tzatziki"
+    ],
+    "photo_credit": {
+      "author": "Antonio Fajardo i López",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Pita_giros.JPG"
+    }
+  },
+  {
+    "id": 4,
+    "name": "Spanakopita",
+    "greek_name": "Σπανακόπιτα",
+    "slug": "spanakopita",
+    "photo": "/images/greek_food/spanakopita.jpg",
+    "description": "Crispy filo pastry pie filled with spinach, feta cheese, onions and fresh herbs.",
+    "category": "pastry",
+    "price": 6,
+    "discount_percent": 0,
+    "is_popular": true,
+    "is_vegetarian": true,
+    "is_available": true,
+    "weight_g": 250,
+    "calories": 420,
+    "rating": 4.6,
+    "tags": [
+      "vegetarian",
+      "spinach",
+      "feta",
+      "filo"
+    ],
+    "photo_credit": {
+      "author": "Alpha",
+      "license": "CC BY-SA 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Spanakopita.jpg"
+    }
+  },
+  {
+    "id": 5,
+    "name": "Greek Salad (Horiatiki)",
+    "greek_name": "Χωριάτικη σαλάτα",
+    "slug": "greek-salad",
+    "photo": "/images/greek_food/greek-salad.jpg",
+    "description": "Tomatoes, cucumber, red onion, green pepper and Kalamata olives with a thick slice of feta, olive oil and oregano.",
+    "category": "salad",
+    "price": 8.5,
+    "discount_percent": 0,
+    "is_popular": true,
+    "is_vegetarian": true,
+    "is_available": true,
+    "weight_g": 350,
+    "calories": 300,
+    "rating": 4.7,
+    "tags": [
+      "vegetarian",
+      "fresh",
+      "feta",
+      "olives"
+    ],
+    "photo_credit": {
+      "author": "User:Jpatokal",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Greece_Food_Horiatiki.JPG"
+    }
+  },
+  {
+    "id": 6,
+    "name": "Pastitsio",
+    "greek_name": "Παστίτσιο",
+    "slug": "pastitsio",
+    "photo": "/images/greek_food/pastitsio.jpg",
+    "description": "Baked pasta with a layer of cinnamon-spiced minced meat and a thick, creamy béchamel on top.",
+    "category": "main",
+    "price": 12.5,
+    "discount_percent": 20,
+    "is_popular": false,
+    "is_vegetarian": false,
+    "is_available": true,
+    "weight_g": 400,
+    "calories": 700,
+    "rating": 4.6,
+    "tags": [
+      "baked",
+      "pasta",
+      "minced meat"
+    ],
+    "photo_credit": {
+      "author": "Sam Bailey",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Pastitsio_homemade.jpg"
+    }
+  },
+  {
+    "id": 7,
+    "name": "Baklava",
+    "greek_name": "Μπακλαβάς",
+    "slug": "baklava",
+    "photo": "/images/greek_food/baklava.png",
+    "description": "Layers of thin filo pastry filled with chopped walnuts and soaked in honey syrup with a hint of cinnamon.",
+    "category": "dessert",
+    "price": 4.5,
+    "discount_percent": 0,
+    "is_popular": true,
+    "is_vegetarian": true,
+    "is_available": true,
+    "weight_g": 120,
+    "calories": 430,
+    "rating": 4.8,
+    "tags": [
+      "sweet",
+      "honey",
+      "nuts",
+      "filo"
+    ],
+    "photo_credit": {
+      "author": "Sakaman",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Baklava(1).png"
+    }
+  },
+  {
+    "id": 8,
+    "name": "Galaktoboureko",
+    "greek_name": "Γαλακτομπούρεκο",
+    "slug": "galaktoboureko",
+    "photo": "/images/greek_food/galaktoboureko.jpg",
+    "description": "Smooth semolina custard baked between layers of crispy filo and soaked in lemon-scented syrup.",
+    "category": "dessert",
+    "price": 5,
+    "discount_percent": 10,
+    "is_popular": false,
+    "is_vegetarian": true,
+    "is_available": true,
+    "weight_g": 150,
+    "calories": 390,
+    "rating": 4.7,
+    "tags": [
+      "sweet",
+      "custard",
+      "filo"
+    ],
+    "photo_credit": {
+      "author": "Badseed",
+      "license": "CC BY 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Galaktoboureko.jpg"
+    }
+  },
+  {
+    "id": 9,
+    "name": "Saganaki",
+    "greek_name": "Σαγανάκι",
+    "slug": "saganaki",
+    "photo": "/images/greek_food/saganaki.jpg",
+    "description": "A thick slice of cheese pan-fried until golden and crispy outside, soft inside. Served with a squeeze of lemon.",
+    "category": "appetizer",
+    "price": 7.5,
+    "discount_percent": 0,
+    "is_popular": false,
+    "is_vegetarian": true,
+    "is_available": true,
+    "weight_g": 150,
+    "calories": 380,
+    "rating": 4.5,
+    "tags": [
+      "vegetarian",
+      "fried cheese",
+      "lemon"
+    ],
+    "photo_credit": {
+      "author": "Scouten",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Grekiska_koket_02.jpg"
+    }
+  },
+  {
+    "id": 10,
+    "name": "Fasolada",
+    "greek_name": "Φασολάδα",
+    "slug": "fasolada",
+    "photo": "/images/greek_food/fasolada.jpg",
+    "description": "Hearty white bean soup with tomatoes, carrots, celery and plenty of olive oil, often called the national dish of Greece.",
+    "category": "soup",
+    "price": 7,
+    "discount_percent": 25,
+    "is_popular": false,
+    "is_vegetarian": true,
+    "is_available": true,
+    "weight_g": 400,
+    "calories": 320,
+    "rating": 4.3,
+    "tags": [
+      "vegan",
+      "beans",
+      "soup"
+    ],
+    "photo_credit": {
+      "author": "Miansari66",
+      "license": "CC0",
+      "source": "https://commons.wikimedia.org/wiki/File:Fasolada.JPG"
+    }
+  },
+  {
+    "id": 11,
+    "name": "Avgolemono Soup",
+    "greek_name": "Αυγολέμονο",
+    "slug": "avgolemono",
+    "photo": "/images/greek_food/avgolemono.jpg",
+    "description": "Silky chicken soup with rice, thickened with a mix of eggs and fresh lemon juice.",
+    "category": "soup",
+    "price": 6.5,
+    "discount_percent": 0,
+    "is_popular": false,
+    "is_vegetarian": false,
+    "is_available": true,
+    "weight_g": 350,
+    "calories": 280,
+    "rating": 4.4,
+    "tags": [
+      "soup",
+      "lemon",
+      "chicken"
+    ],
+    "photo_credit": {
+      "author": "robin.norwood",
+      "license": "CC BY-SA 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Avgolemono_soup.jpg"
+    }
+  },
+  {
+    "id": 12,
+    "name": "Tiropita",
+    "greek_name": "Τυρόπιτα",
+    "slug": "tiropita",
+    "photo": "/images/greek_food/tiropita.jpg",
+    "description": "Golden filo pastry pie filled with a mix of feta and other cheeses and eggs. A favourite Greek breakfast.",
+    "category": "pastry",
+    "price": 5,
+    "discount_percent": 5,
+    "is_popular": false,
+    "is_vegetarian": true,
+    "is_available": true,
+    "weight_g": 200,
+    "calories": 400,
+    "rating": 4.5,
+    "tags": [
+      "vegetarian",
+      "cheese",
+      "filo",
+      "breakfast"
+    ],
+    "photo_credit": {
+      "author": "Tanya Bakogiannis",
+      "license": "CC BY 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Tiropita_Greek_dish.jpg"
+    }
+  },
+  {
+    "id": 13,
+    "name": "Lamb Kleftiko",
+    "greek_name": "Κλέφτικο",
+    "slug": "kleftiko",
+    "photo": "/images/greek_food/kleftiko.jpg",
+    "description": "Lamb slow-cooked for hours with garlic, lemon and herbs until it falls off the bone, served with roasted potatoes.",
+    "category": "main",
+    "price": 18,
+    "discount_percent": 0,
+    "is_popular": false,
+    "is_vegetarian": false,
+    "is_available": false,
+    "weight_g": 450,
+    "calories": 780,
+    "rating": 4.9,
+    "tags": [
+      "lamb",
+      "slow-cooked",
+      "potatoes"
+    ],
+    "photo_credit": {
+      "author": "Lord Mountbatten",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Kleftiko.JPG"
+    }
+  },
+  {
+    "id": 14,
+    "name": "Bougatsa",
+    "greek_name": "Μπουγάτσα",
+    "slug": "bougatsa",
+    "photo": "/images/greek_food/bougatsa.png",
+    "description": "Warm filo pastry filled with creamy semolina custard and dusted with powdered sugar and cinnamon.",
+    "category": "dessert",
+    "price": 4.8,
+    "discount_percent": 15,
+    "is_popular": false,
+    "is_vegetarian": true,
+    "is_available": true,
+    "weight_g": 180,
+    "calories": 450,
+    "rating": 4.6,
+    "tags": [
+      "sweet",
+      "custard",
+      "breakfast"
+    ],
+    "photo_credit": {
+      "author": "avlxyz",
+      "license": "CC BY-SA 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Bougatsa.png"
+    }
+  },
+  {
+    "id": 15,
+    "name": "Taramosalata",
+    "greek_name": "Ταραμοσαλάτα",
+    "slug": "taramosalata",
+    "photo": "/images/greek_food/taramosalata.jpg",
+    "description": "A creamy dip made from fish roe, bread or potato, olive oil and lemon juice. Great with warm pita.",
+    "category": "appetizer",
+    "price": 5.5,
+    "discount_percent": 0,
+    "is_popular": false,
+    "is_vegetarian": false,
+    "is_available": true,
+    "weight_g": 120,
+    "calories": 340,
+    "rating": 4.2,
+    "tags": [
+      "dip",
+      "fish roe",
+      "bread"
+    ],
+    "photo_credit": {
+      "author": "Robert Kindermann",
+      "license": "CC BY-SA 2.5",
+      "source": "https://commons.wikimedia.org/wiki/File:Taramosalata01.jpg"
+    }
+  },
+  {
+    "id": 16,
+    "name": "Gigantes Plaki",
+    "greek_name": "Γίγαντες πλακί",
+    "slug": "gigantes-plaki",
+    "photo": "/images/greek_food/gigantes-plaki.jpg",
+    "description": "Giant white beans baked in a rich tomato sauce with onions, garlic, dill and olive oil.",
+    "category": "main",
+    "price": 9,
+    "discount_percent": 5,
+    "is_popular": false,
+    "is_vegetarian": true,
+    "is_available": true,
+    "weight_g": 350,
+    "calories": 380,
+    "rating": 4.4,
+    "tags": [
+      "vegan",
+      "beans",
+      "baked",
+      "tomato"
+    ],
+    "photo_credit": {
+      "author": "Hevesli",
+      "license": "Public domain",
+      "source": "https://commons.wikimedia.org/wiki/File:Gigandes_plaki.jpg"
+    }
+  }
+]

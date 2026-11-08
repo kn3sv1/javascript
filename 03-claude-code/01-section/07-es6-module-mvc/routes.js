@@ -3,6 +3,7 @@ import { getProducts } from "./controllers/products.js";
 import { getAngieInfo } from "./controllers/angie.js";
 import { getRomaInfo } from "./controllers/roma.js";
 import { getCoffee, getCoffeeDetail } from "./controllers/coffee.js";
+import { getGreekFood, getFoodDetail } from "./controllers/greekFood.js";
 
 export const routes = [
   {
@@ -35,9 +36,19 @@ export const routes = [
     path: "/coffee",
     handler: getCoffee,
   },
-    {
+  {
     method: "GET",
     path: "/coffee/:id",
     handler: getCoffeeDetail,
+  },
+  {
+    method: "GET",
+    path: "/greek-food",
+    handler: getGreekFood,
+  },
+  {
+    method: "GET",
+    path: "/greek-food/:id",
+    handler: getFoodDetail,
   },
 ];

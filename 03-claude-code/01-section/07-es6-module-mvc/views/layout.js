@@ -20,6 +20,7 @@ export function layout({ title = "My App", content = "" }) {
         <a href="/angie">Angie</a>
         <a href="/roma">Roma</a>
         <a href="/coffee">Coffee</a>
+        <a href="/greek-food">Greek Food</a>
       </nav>
     </header>
 
