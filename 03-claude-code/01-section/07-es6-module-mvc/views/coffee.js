@@ -3,11 +3,33 @@ import { layout } from "./layout.js";
 export function coffeeView(coffee) {
   let cards = "";
 
+  // 1. Keep only the discounts above 0: [10, 15, 20, 10, 5]
+  const discounts = coffee
+    .map((item) => item.discount_percent)
+    .filter((d) => d > 0);
+
+  // 2. Find the smallest one: 5
+  const lowestDiscount = Math.min(...discounts);
+
+  // 3. Find the biggest one: 20
+  const highestDiscount = Math.max(...discounts);
+
   // Add one card for each coffee in the array
   for (const item of coffee) {
     let popular = "";
+    let lowestBadge = "";
+
     if (item.is_popular) {
       popular = "<p><b>⭐ Popular</b></p>";
+    }
+
+    if (item.discount_percent === lowestDiscount) {
+      lowestBadge = "<p><b>🏷️ Smallest deal</b></p>";
+    }
+
+    let highestBadge = "";
+    if (item.discount_percent === highestDiscount) {
+      highestBadge = `<p class="best-deal">🔥 Best deal -${item.discount_percent}%</p>`;
     }
 
     let specialOffer = "";
@@ -21,8 +43,9 @@ export function coffeeView(coffee) {
     cards += `
       <div class="card ${specialOffer}">
         <img src="${item.photo}" alt="${item.name}" />
+        ${highestBadge}
         <h3>${item.name}</h3>
-        ${popular}
+        ${popular} ${lowestBadge}
         <p>${item.description}</p>
         <p class="price">$${item.price}</p>
         <small>Discount:${item.discount_percent}%</small><br />
@@ -60,7 +83,18 @@ export function coffeeView(coffee) {
       }
       .discount_percent_over_10 {
         background-color: #aeeb34;
-      }    
+      }
+      .best-deal {
+        display: inline-block;
+        margin: 8px 0 0;
+        padding: 6px 14px;
+        background-color: #e53935;
+        color: white;
+        font-weight: bold;
+        font-size: 16px;
+        border-radius: 20px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+      }
     </style>
 
     <h1>Coffee Catalogue</h1>
