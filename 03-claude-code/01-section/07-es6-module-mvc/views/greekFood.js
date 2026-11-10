@@ -3,11 +3,29 @@ import { layout } from "./layout.js";
 export function greekFoodView(food) {
   let cards = "";
 
+  const discounts = food
+    .map((item) => item.discount_percent)
+    .filter((d) => d > 0);
+
+  const lowestDiscount = Math.min(...discounts);
+
+  const highestDiscount = Math.max(...discounts);
+
   // Add one card for each coffee in the array
   for (const item of food) {
     let popular = "";
     if (item.is_popular) {
       popular = "<p><b>⭐ Popular</b></p>";
+    }
+
+    let lowestBadge = "";
+    if (item.discount_percent === lowestDiscount) {
+      lowestBadge = "<p><b>🏷️ Smallest deal</b></p>";
+    }
+
+    let highestBadge = "";
+    if (item.discount_percent === highestDiscount) {
+      highestBadge = `<p class="best-deal">🔥 Best deal -${item.discount_percent}%</p>`;
     }
 
     let specialOffer = "";
@@ -21,8 +39,9 @@ export function greekFoodView(food) {
     cards += `
       <div class="card ${specialOffer}">
         <img src="${item.photo}" alt="${item.name}" />
+        ${highestBadge}
         <h3>${item.name}</h3>
-        ${popular}
+        ${popular} ${lowestBadge}
         <p>${item.description}</p>
         <p class="price">$${item.price}</p>
         <small>Discount:${item.discount_percent}%</small><br />
@@ -60,7 +79,18 @@ export function greekFoodView(food) {
       }
       .discount_percent_over_10 {
         background-color: #aeeb34;
-      }    
+      }
+      .best-deal {
+        display: inline-block;
+        margin: 8px 0 0;
+        padding: 6px 14px;
+        background-color: #e53935;
+        color: white;
+        font-weight: bold;
+        font-size: 16px;
+        border-radius: 20px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+      }      
     </style>
 
     <h1>Greek Food Catalogue</h1>
