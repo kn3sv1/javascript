@@ -11,6 +11,7 @@ export function layout({ title = "My App", content = "" }) {
       header a { color: #fff; margin-right: 1rem; text-decoration: none; }
       main { padding: 1rem; }
     </style>
+    <script src="/js/app.js" defer></script>
   </head>
   <body>
     <header>
@@ -29,7 +30,10 @@ export function layout({ title = "My App", content = "" }) {
     </main>
 
     <footer>
-      <small>&copy; ${new Date().getFullYear()} My App</small>
+      <small>
+        &copy; ${new Date().getFullYear()} My App | 
+        Current time: <span id="clock"></span>
+      </small>
     </footer>
   </body>
 </html>`;
