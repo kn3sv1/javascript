@@ -1,7 +1,15 @@
 import { layout } from "./layout.js";
 
-export function coffeeView(coffee) {
+export function coffeeView(coffee, visits, lastVisit) {
   let cards = "";
+
+  // Text about the visits
+  let visitInfo = `You have visited this page <b>${visits}</b> times.`;
+  if (lastVisit) {
+    visitInfo += ` Your last visit: <b>${lastVisit}</b>`;
+  } else {
+    visitInfo = "👋 Welcome! This is your first visit.";
+  }
 
   // 1. Keep only the discounts above 0: [10, 15, 20, 10, 5]
   const discounts = coffee
@@ -95,9 +103,14 @@ export function coffeeView(coffee) {
         border-radius: 20px;
         box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
       }
+      .visits {
+        color: #777;
+        font-size: 14px;
+      }
     </style>
 
     <h1>Coffee Catalogue</h1>
+    <p class="visits">${visitInfo}</p>
     <p>
       <a href="/coffee">All</a> |
       <a href="/coffee?category=espresso">Espresso</a> |

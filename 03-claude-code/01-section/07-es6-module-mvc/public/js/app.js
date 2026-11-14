@@ -19,7 +19,7 @@ updateClock();
 setInterval(updateClock, 1000);
 
 // ===== Header: dark mode button =====
-const themeButton = document.getElementById("theme-btn");
+/*const themeButton = document.getElementById("theme-btn");
 
 themeButton.addEventListener("click", () => {
   // Add the "dark" class if it's missing, remove it if it's there
@@ -31,6 +31,29 @@ themeButton.addEventListener("click", () => {
   } else {
     themeButton.textContent = "🌙 Dark mode";
   }
+});*/
+
+const themeButton = document.getElementById("theme-btn");
+
+// Load saved theme when the page opens
+if (localStorage.getItem("theme") === "dark") {
+  document.body.classList.add("dark");
+  themeButton.textContent = "☀️ Light mode";
+}
+
+// Switch theme when the button is clicked
+themeButton.addEventListener("click", function () {
+
+  document.body.classList.toggle("dark");
+
+  if (document.body.classList.contains("dark")) {
+    themeButton.textContent = "☀️ Light mode";
+    localStorage.setItem("theme", "dark");
+  } else {
+    themeButton.textContent = "🌙 Dark mode";
+    localStorage.setItem("theme", "light");
+  }
+
 });
 
 // ===== Coffee page: best deal popup =====
