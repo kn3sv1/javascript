@@ -11,6 +11,7 @@ import {
   getCoffeeWithOverTenPercent
 } from "../services/coffeeSpecialOffer.js";
 import { setCookie, getCookie } from "../utils/cookie.js";
+import { saveSession } from "../utils/session.js";
 
 export async function getCoffee(req, res) {
   const url = new URL(req.url, `http://${req.headers.host}`);
@@ -49,6 +50,22 @@ export async function getCoffee(req, res) {
   setCookie(res, "coffee_visits", visits);
   setCookie(res, "coffee_last_visit", new Date().toLocaleString());
 
+  // Session counter: only for logged-in users, counts since login
+  let sessionInfo = null;
+  if (req.session) {
+    const previousVisit = req.session.coffee_last_visit;
+
+    req.session.coffee_visits += 1;
+    req.session.coffee_last_visit = new Date().toLocaleString();
+    await saveSession(req);
+
+    sessionInfo = {
+      coffeeVisits: req.session.coffee_visits,
+      lastVisit: previousVisit,
+      totalVisits: req.session.total_visits,
+    };
+  }
+
   // const coffee = await getAll();
 
   //   res.statusCode = 200;
@@ -58,7 +75,7 @@ export async function getCoffee(req, res) {
 
   res.statusCode = 200;
   res.setHeader("Content-Type", "text/html; charset=utf-8");
-  res.end(coffeeView(coffee, visits, lastVisit, req.user));
+  res.end(coffeeView(coffee, visits, lastVisit, req.user, sessionInfo));
 }
 
 export async function getCoffeeDetail(req, res) {

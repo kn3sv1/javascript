@@ -1,6 +1,6 @@
 import { accounts } from "../data/accounts.js";
 import { loginView } from "../views/login.js";
-import { setCookie, deleteCookie } from "../utils/cookie.js";
+import { createSession, destroySession } from "../utils/session.js";
 import { readForm } from "../utils/form.js";
 
 // GET /login - show the form
@@ -25,16 +25,21 @@ export async function postLogin(req, res) {
     return res.end(loginView({ error: "Wrong login or password" }));
   }
 
-  // Remember the user and send them to the coffee page
-  setCookie(res, "username", account.name);
+  // Remember the user in a new session and send them to the coffee page
+  await createSession(res, {
+    user: account.name,
+    total_visits: 0,
+    coffee_visits: 0,
+    coffee_last_visit: null,
+  });
   res.statusCode = 302;
   res.setHeader("Location", "/coffee");
   res.end();
 }
 
 // GET /logout - forget the user
-export function getLogout(req, res) {
-  deleteCookie(res, "username");
+export async function getLogout(req, res) {
+  await destroySession(req, res);
   res.statusCode = 302;
   res.setHeader("Location", "/login");
   res.end();

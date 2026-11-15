@@ -1,6 +1,6 @@
 import { layout } from "./layout.js";
 
-export function coffeeView(coffee, visits, lastVisit, user) {
+export function coffeeView(coffee, visits, lastVisit, user, sessionInfo) {
   let cards = "";
 
   // Text about the visits
@@ -9,6 +9,16 @@ export function coffeeView(coffee, visits, lastVisit, user) {
     visitInfo += ` Your last visit: <b>${lastVisit}</b>`;
   } else {
     visitInfo = "👋 Welcome! This is your first visit.";
+  }
+
+  // Text from the session (only when logged in)
+  let sessionText = "";
+  if (sessionInfo) {
+    sessionText = `🔐 Since you logged in: you opened this page <b>${sessionInfo.coffeeVisits}</b> times`;
+    if (sessionInfo.lastVisit) {
+      sessionText += `, last time at <b>${sessionInfo.lastVisit}</b>`;
+    }
+    sessionText += `.All Pages visited in total: <b>${sessionInfo.totalVisits}</b>.`;
   }
 
   // 1. Keep only the discounts above 0: [10, 15, 20, 10, 5]
@@ -111,6 +121,7 @@ export function coffeeView(coffee, visits, lastVisit, user) {
 
     <h1>Coffee Catalogue</h1>
     <p class="visits">${visitInfo}</p>
+    <p class="visits">${sessionText}</p>
     <p>
       <a href="/coffee">All</a> |
       <a href="/coffee?category=espresso">Espresso</a> |

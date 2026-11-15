@@ -1,6 +1,6 @@
 import { routes } from "./routes.js";
 import { serveStatic } from "./controllers/static.js";
-import { getCookie } from "./utils/cookie.js";
+import { loadSession, saveSession } from "./utils/session.js";
 
 function findRoute(method, pathname) {
   return routes.find((route) => {
@@ -32,7 +32,7 @@ function findRouteSimple(method, pathname) {
   });
 }
 
-export function handleRequest(req, res) {
+export async function handleRequest(req, res) {
   // we want to parse the URL to extract the path name.
   const url = new URL(req.url, `http://${req.headers.host}`);
     // 1. Try static files from /public first
@@ -46,9 +46,18 @@ export function handleRequest(req, res) {
     return res.end("Not Found");
   }
 
-  // Logged-in user's name from the cookie (null if not logged in)
+  // Find the session by the SESSION_ID cookie (req.session is null if not logged in)
+  await loadSession(req);
+
   // Every controller can now use req.user
-  req.user = getCookie(req, "username");
+  req.user = null;
+  if (req.session) {
+    req.user = req.session.user;
+
+    // Count every page the logged-in user opens
+    req.session.total_visits += 1;
+    await saveSession(req);
+  }
 
   // here we are sure that it exists.
   route.handler(req, res);
