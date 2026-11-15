@@ -11,6 +11,14 @@ export function setCookie(res, key, value) {
   res.setHeader("Set-Cookie", [...existing, cookie]);
 }
 
+// Delete a cookie: setting a date in the past makes the browser remove it
+export function deleteCookie(res, key) {
+  const cookie = `${key}=; Path=/; Expires=Thu, 01 Jan 1970 00:00:00 GMT`;
+
+  const existing = res.getHeader("Set-Cookie") || [];
+  res.setHeader("Set-Cookie", [...existing, cookie]);
+}
+
 // Read one cookie sent by the browser: getCookie(req, "last_coffee") -> "5"
 // Returns null if the cookie doesn't exist
 export function getCookie(req, key) {

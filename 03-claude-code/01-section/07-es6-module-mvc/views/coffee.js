@@ -1,6 +1,6 @@
 import { layout } from "./layout.js";
 
-export function coffeeView(coffee, visits, lastVisit) {
+export function coffeeView(coffee, visits, lastVisit, user) {
   let cards = "";
 
   // Text about the visits
@@ -123,5 +123,5 @@ export function coffeeView(coffee, visits, lastVisit) {
     </div>
   `;
 
-  return layout({ title: "Coffee", content });
+  return layout({ title: "Coffee", content, user });
 }

@@ -1,5 +1,6 @@
 import { routes } from "./routes.js";
-import { serveStatic } from "./controllers/static.js"; 
+import { serveStatic } from "./controllers/static.js";
+import { getCookie } from "./utils/cookie.js";
 
 function findRoute(method, pathname) {
   return routes.find((route) => {
@@ -44,6 +45,10 @@ export function handleRequest(req, res) {
     res.statusCode = 404;
     return res.end("Not Found");
   }
+
+  // Logged-in user's name from the cookie (null if not logged in)
+  // Every controller can now use req.user
+  req.user = getCookie(req, "username");
 
   // here we are sure that it exists.
   route.handler(req, res);

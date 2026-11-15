@@ -1,4 +1,10 @@
-export function layout({ title = "My App", content = "" }) {
+export function layout({ title = "My App", content = "", user = null }) {
+  // Greeting for a logged-in user, or a link to the login page
+  let userMenu = `<a href="/login">Login</a>`;
+  if (user) {
+    userMenu = `Hello, <b>${user}</b>! <a href="/logout">Logout</a>`;
+  }
+
   return `<!DOCTYPE html>
 <html lang="en">
   <head>
@@ -11,6 +17,8 @@ export function layout({ title = "My App", content = "" }) {
       header a { color: #fff; margin-right: 1rem; text-decoration: none; }
       main { padding: 1rem; }
       header { display: flex; justify-content: space-between; align-items: center; }
+      .user-menu { display: flex; align-items: center; gap: 1rem; }
+      .user-menu a { margin-right: 0; text-decoration: underline; }
 
       #theme-btn {
         background: none;
@@ -46,7 +54,10 @@ export function layout({ title = "My App", content = "" }) {
         <a href="/coffee">Coffee</a>
         <a href="/greek-food">Greek Food</a>
       </nav>
-      <button id="theme-btn">🌙 Dark mode</button>
+      <div class="user-menu">
+        <span>${userMenu}</span>
+        <button id="theme-btn">🌙 Dark mode</button>
+      </div>
     </header>
 
     <main>

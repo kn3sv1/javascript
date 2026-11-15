@@ -7,5 +7,5 @@ export function getRomaInfo(req, res) {
 
   res.statusCode = 200;
   res.setHeader("Content-Type", "text/html; charset=utf-8");
-  res.end(romaView(data));
+  res.end(romaView(data, req.user));
 }

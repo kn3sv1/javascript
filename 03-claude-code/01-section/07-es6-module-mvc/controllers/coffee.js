@@ -58,7 +58,7 @@ export async function getCoffee(req, res) {
 
   res.statusCode = 200;
   res.setHeader("Content-Type", "text/html; charset=utf-8");
-  res.end(coffeeView(coffee, visits, lastVisit));
+  res.end(coffeeView(coffee, visits, lastVisit, req.user));
 }
 
 export async function getCoffeeDetail(req, res) {
@@ -77,5 +77,5 @@ export async function getCoffeeDetail(req, res) {
 
   res.statusCode = 200;
   res.setHeader("Content-Type", "text/html; charset=utf-8");
-  res.end(coffeeDetailView(coffee));
+  res.end(coffeeDetailView(coffee, req.user));
 }

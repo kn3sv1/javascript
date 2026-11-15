@@ -1,6 +1,6 @@
 import { layout } from "./layout.js";
 
-export function foodDetailView(food) {
+export function foodDetailView(food, user) {
   let content = `
     <a href="/greek-food">← Back to all Greek Food</a>
 
@@ -17,5 +17,5 @@ export function foodDetailView(food) {
     <small>Photo: ${food.photo_credit.author}, ${food.photo_credit.license}</small>
   `;
 
-  return layout({ title: food.name, content });
+  return layout({ title: food.name, content, user });
 }

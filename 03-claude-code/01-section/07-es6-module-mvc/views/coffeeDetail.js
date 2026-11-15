@@ -1,6 +1,6 @@
 import { layout } from "./layout.js";
 
-export function coffeeDetailView(coffee) {
+export function coffeeDetailView(coffee, user) {
   let content = `
     <a href="/coffee">← Back to all coffee</a>
 
@@ -18,5 +18,5 @@ export function coffeeDetailView(coffee) {
     <small>Photo: ${coffee.photo_credit.author}, ${coffee.photo_credit.license}</small>
   `;
 
-  return layout({ title: coffee.name, content });
+  return layout({ title: coffee.name, content, user });
 }

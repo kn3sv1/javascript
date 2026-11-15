@@ -1,6 +1,6 @@
 import { layout } from "./layout.js";
 
-export function greekFoodView(food) {
+export function greekFoodView(food, user) {
   let cards = "";
 
   const discounts = food
@@ -110,5 +110,5 @@ export function greekFoodView(food) {
     </div>
   `;
 
-  return layout({ title: "Greek Food", content });
+  return layout({ title: "Greek Food", content, user });
 }

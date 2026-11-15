@@ -35,7 +35,7 @@ export async function getGreekFood(req, res) {
 
   res.statusCode = 200;
   res.setHeader("Content-Type", "text/html; charset=utf-8");
-  res.end(greekFoodView(food));
+  res.end(greekFoodView(food, req.user));
 }
 
 export async function getFoodDetail(req, res) {
@@ -54,5 +54,5 @@ export async function getFoodDetail(req, res) {
 
   res.statusCode = 200;
   res.setHeader("Content-Type", "text/html; charset=utf-8");
-  res.end(foodDetailView(food));
+  res.end(foodDetailView(food, req.user));
 }

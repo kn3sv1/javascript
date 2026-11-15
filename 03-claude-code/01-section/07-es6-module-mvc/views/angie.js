@@ -1,6 +1,6 @@
 import { layout } from "./layout.js";
 
-export function angieView({ name, color }) {
+export function angieView({ name, color }, user) {
   const content = `
   <p style="color: ${color}">${name}</p>
   
@@ -9,5 +9,5 @@ export function angieView({ name, color }) {
   <img src="/images/logo.png" alt="Logo">
   `;
 
-  return layout({ title: name, content });
+  return layout({ title: name, content, user });
 }
