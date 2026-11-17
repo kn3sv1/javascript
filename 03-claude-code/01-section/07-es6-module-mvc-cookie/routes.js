@@ -1,3 +1,4 @@
+import { getHome } from "./controllers/home.js";
 import { getUser, getUsers } from "./controllers/users.js";
 import { getProducts } from "./controllers/products.js";
 import { getAngieInfo } from "./controllers/angie.js";
@@ -7,6 +8,11 @@ import { getGreekFood, getFoodDetail } from "./controllers/greekFood.js";
 import { getLogin, postLogin, getLogout } from "./controllers/auth.js";
 
 export const routes = [
+    {
+    method: "GET",
+    path: "/",
+    handler: getHome,
+  },
   {
     method: "GET",
     path: "/users",

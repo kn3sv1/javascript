@@ -47,6 +47,7 @@ export function layout({ title = "My App", content = "", user = null }) {
   <body>
     <header>
       <nav>
+        <a href="/">Home page</a>
         <a href="/users">Users</a>
         <a href="/products">Products</a>
         <a href="/angie">Angie</a>
