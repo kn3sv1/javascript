@@ -45,6 +45,13 @@ export async function getCoffee(req, res) {
   // Time of the previous visit (null on the first visit)
   const lastVisit = getCookie(req, "coffee_last_visit");
 
+  const cookieValue = getCookie(req, "last_coffee");
+  let lastCoffee = null;
+
+  if (cookieValue) {
+      lastCoffee = await getById(Number(cookieValue));
+  };
+
   // Save the new values for next time
   setCookie(res, "coffee_visits", visits);
   setCookie(res, "coffee_last_visit", new Date().toLocaleString());
@@ -58,7 +65,7 @@ export async function getCoffee(req, res) {
 
   res.statusCode = 200;
   res.setHeader("Content-Type", "text/html; charset=utf-8");
-  res.end(coffeeView(coffee, visits, lastVisit, req.user));
+  res.end(coffeeView(coffee, visits, lastVisit, req.user, lastCoffee));
 }
 
 export async function getCoffeeDetail(req, res) {
@@ -77,5 +84,6 @@ export async function getCoffeeDetail(req, res) {
 
   res.statusCode = 200;
   res.setHeader("Content-Type", "text/html; charset=utf-8");
+  setCookie(res, "last_coffee", coffee.id);
   res.end(coffeeDetailView(coffee, req.user));
 }
