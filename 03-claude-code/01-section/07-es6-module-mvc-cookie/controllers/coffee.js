@@ -8,7 +8,7 @@ import { coffeeDetailView } from "../views/coffeeDetail.js";
 import {
   getCoffeeWithSpecialOffer,
   getCoffeeOnlyWithSpecialOffer,
-  getCoffeeWithOverTenPercent
+  getCoffeeWithOverTenPercent,
 } from "../services/coffeeSpecialOffer.js";
 import { setCookie, getCookie } from "../utils/cookie.js";
 
@@ -49,8 +49,8 @@ export async function getCoffee(req, res) {
   let lastCoffee = null;
 
   if (cookieValue) {
-      lastCoffee = await getById(Number(cookieValue));
-  };
+    lastCoffee = await getById(Number(cookieValue));
+  }
 
   // Save the new values for next time
   setCookie(res, "coffee_visits", visits);
@@ -86,4 +86,21 @@ export async function getCoffeeDetail(req, res) {
   res.setHeader("Content-Type", "text/html; charset=utf-8");
   setCookie(res, "last_coffee", coffee.id);
   res.end(coffeeDetailView(coffee, req.user));
+}
+
+// GET /api/last-coffee - returns the last viewed coffee as JSON
+// http://localhost:3000/api/last-coffee
+export async function getLastCoffeeApi(req, res) {
+  res.setHeader("Content-Type", "application/json; charset=utf-8");
+
+  const cookieValue = getCookie(req, "last_coffee");
+  const coffee = cookieValue ? await getById(Number(cookieValue)) : null;
+
+  if (!coffee) {
+    res.statusCode = 404;
+    return res.end(JSON.stringify({ error: "No last viewed coffee" }));
+  }
+
+  res.statusCode = 200;
+  res.end(JSON.stringify(coffee));
 }

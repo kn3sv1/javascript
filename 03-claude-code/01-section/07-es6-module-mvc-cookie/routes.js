@@ -3,12 +3,16 @@ import { getUser, getUsers } from "./controllers/users.js";
 import { getProducts } from "./controllers/products.js";
 import { getAngieInfo } from "./controllers/angie.js";
 import { getRomaInfo } from "./controllers/roma.js";
-import { getCoffee, getCoffeeDetail } from "./controllers/coffee.js";
-import { getGreekFood, getFoodDetail } from "./controllers/greekFood.js";
+import {
+  getCoffee,
+  getCoffeeDetail,
+  getLastCoffeeApi,
+} from "./controllers/coffee.js";
+import { getGreekFood, getFoodDetail, getMainDishesApi } from "./controllers/greekFood.js";
 import { getLogin, postLogin, getLogout } from "./controllers/auth.js";
 
 export const routes = [
-    {
+  {
     method: "GET",
     path: "/",
     handler: getHome,
@@ -47,6 +51,16 @@ export const routes = [
     method: "GET",
     path: "/coffee/:id",
     handler: getCoffeeDetail,
+  },
+  {
+    method: "GET",
+    path: "/api/last-coffee",
+    handler: getLastCoffeeApi,
+  },
+  {
+    method: "GET",
+    path: "/api/main-dishes",
+    handler: getMainDishesApi,
   },
   {
     method: "GET",

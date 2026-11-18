@@ -1,3 +1,18 @@
-body  {
-    background-color: aqua;
+body {
+  background-color: aqua;
+}
+
+.home-food-card {
+    float: left;
+}
+
+.home-food-card img {
+    height: 200px;
+    padding: 5px 5px;
+}
+
+.home-food-card-title {
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
 }

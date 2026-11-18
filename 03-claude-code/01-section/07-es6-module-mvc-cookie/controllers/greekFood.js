@@ -56,3 +56,17 @@ export async function getFoodDetail(req, res) {
   res.setHeader("Content-Type", "text/html; charset=utf-8");
   res.end(foodDetailView(food, req.user));
 }
+
+export async function getMainDishesApi(req, res) {
+  res.setHeader("Content-Type", "application/json; charset=utf-8");
+
+  const mainDishes = await getByCategory("main");
+
+  if (!mainDishes) {
+    res.statusCode = 404;
+    return res.end(JSON.stringify({ error: "No food found by this category." }));
+  }
+
+  res.statusCode = 200;
+  res.end(JSON.stringify(mainDishes));
+}
