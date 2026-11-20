@@ -4,6 +4,26 @@
     {
       "type": "node",
       "request": "launch",
+      "name": "Run all tests",
+      "runtimeExecutable": "node",
+      "runtimeArgs": ["--test"],
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "skipFiles": ["<node_internals>/**"]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Run current test file",
+      "runtimeExecutable": "node",
+      "runtimeArgs": ["--test", "${file}"],
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "skipFiles": ["<node_internals>/**"]
+    },
+    {
+      "type": "node",
+      "request": "launch",
       "name": "Debug HTTP server",
       "program": "${workspaceFolder}/index.js",
       "cwd": "${workspaceFolder}",
