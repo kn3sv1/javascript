@@ -15,5 +15,8 @@
   "devDependencies": {
     "nodemon": "^3.1.14",
     "supertest": "^7.3.1"
+  },
+  "dependencies": {
+    "busboy": "^1.6.0"
   }
 }

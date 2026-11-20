@@ -10,6 +10,7 @@ import {
 } from "./controllers/coffee.js";
 import { getGreekFood, getFoodDetail, getMainDishesApi } from "./controllers/greekFood.js";
 import { getLogin, postLogin, getLogout } from "./controllers/auth.js";
+import { getMediaForm, postMediaForm } from "./controllers/media.js";
 
 export const routes = [
   {
@@ -86,5 +87,15 @@ export const routes = [
     method: "GET",
     path: "/logout",
     handler: getLogout,
+  },
+    {
+    method: "GET",
+    path: "/media",
+    handler: getMediaForm,
+  },
+    {
+    method: "POST",
+    path: "/api/media",
+    handler: postMediaForm,
   },
 ];
