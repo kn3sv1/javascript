@@ -12,6 +12,32 @@ export function getMediaForm(req, res) {
   res.end(mediaView({ user: req.user }));
 }
 
+export async function getFilesFromUploads(req, res) {
+  try {
+    // withFileTypes: true gives objects that can tell files from folders
+    const entries = await fs.promises.readdir(uploadsDir, {
+      withFileTypes: true,
+    });
+
+    const files = entries
+      // keep real files only: skip folders and unfinished "tmp-" uploads
+      .filter((entry) => entry.isFile() && !entry.name.startsWith("tmp-"))
+      // same shape as the upload response
+      .map((entry) => ({
+        file_name: entry.name,
+        url: `/uploads/${encodeURIComponent(entry.name)}`,
+      }));
+
+    res.statusCode = 200;
+    res.setHeader("Content-Type", "application/json; charset=utf-8");
+    res.end(JSON.stringify(files));
+  } catch (error) {
+    console.error(error);
+    res.writeHead(500, { "Content-Type": "application/json; charset=utf-8" });
+    res.end(JSON.stringify({ error: "Could not read uploads" }));
+  }
+}
+
 export function postMediaForm(req, res) {
   const fields = {};
   let fileInfo = null;
