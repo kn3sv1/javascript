@@ -22,6 +22,18 @@
       "skipFiles": ["<node_internals>/**"]
     },
     {
+      // Select a word from a describe()/it() name (e.g. postMediaForm), then F5.
+      // The selection is a regular expression, so don't include ( ) characters.
+      "type": "node",
+      "request": "launch",
+      "name": "Run tests matching selected text",
+      "runtimeExecutable": "node",
+      "runtimeArgs": ["--test", "--test-name-pattern", "${selectedText}", "${file}"],
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "skipFiles": ["<node_internals>/**"]
+    },
+    {
       "type": "node",
       "request": "launch",
       "name": "Debug HTTP server",
