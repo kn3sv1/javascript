@@ -68,7 +68,15 @@ export function postMediaForm(req, res) {
 
       await fs.promises.rename(fileInfo.tempPath, finalPath);
 
-      res.end("Upload successful");
+      // Reply with JSON so the browser script can show the uploaded image
+      res.setHeader("Content-Type", "application/json; charset=utf-8");
+      res.end(
+        JSON.stringify({
+          message: "Upload successful",
+          url: `/uploads/${encodeURIComponent(baseName + extension)}`,
+          file_name: `${baseName + extension}`, 
+        }),
+      );
     } catch (error) {
       console.error(error);
       res.writeHead(500);

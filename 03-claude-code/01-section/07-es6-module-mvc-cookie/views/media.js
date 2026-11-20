@@ -21,11 +21,12 @@ export function mediaView({ error, user }) {
         color: red;
       }
     </style>
+    <script src="/js/media.js" defer></script>
 
     <h1>Upload Photo</h1>
     ${errorMessage}
 
-    <form class="media-form" method="POST" action="/api/media" enctype="multipart/form-data">
+    <form id="media-form" class="media-form" method="POST" action="/api/media" enctype="multipart/form-data">
       <label>
         Name<br />
         <input type="text" name="name" />
@@ -36,6 +37,7 @@ export function mediaView({ error, user }) {
       </label>
       <button type="submit">Upload</button>
     </form>
+    <div id="media-result"></div>
   `;
 
   return layout({ title: "Media", content, user });
