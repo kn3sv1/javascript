@@ -4,6 +4,7 @@
 window.addEventListener("DOMContentLoaded", function () {
   loadLastCoffee();
   loadMainDishes();
+  loadCars();
 });
 
 async function loadLastCoffee() {
@@ -64,5 +65,42 @@ async function loadMainDishes() {
     mainDishesBox.innerHTML = `<h2>🍽️ Main dishes</h2><div class="home-food-container">${cards}</div><div style="clear:both"></div>`;
   } catch (error) {
     mainDishesBox.textContent = "Could not load main dishes.";
+  }
+}
+
+async function loadCars() {
+  const carsBox = document.getElementById("cars");
+
+  try {
+    // ?name=cars -> the server returns only files whose name starts with "cars"
+    const response = await fetch("/api/media-list?name=cars");
+
+    if (!response.ok) {
+      carsBox.textContent = "Could not load cars.";
+      return;
+    }
+
+    // An array like [{ file_name: "cars-1.jpg", url: "/uploads/cars-1.jpg" }, ...]
+    const cars = await response.json();
+
+    if (cars.length === 0) {
+      carsBox.innerHTML = `<p>No cars uploaded yet. <a href="/media">Upload one</a></p>`;
+      return;
+    }
+
+    let cards = "";
+    for (const car of cars) {
+      cards += `
+        <div class="home-food-card">
+          <img src="${car.url}" alt="${car.file_name}" width="250" />
+          <div class="home-food-card-title">${car.file_name}</div>
+        </div>
+      `;
+    }
+
+    carsBox.innerHTML = `<h2>🚗 Cars</h2><div class="home-food-container">${cards}</div><div style="clear:both"></div>`;
+  } catch (error) {
+    // Network error or server down
+    carsBox.textContent = "Could not load cars.";
   }
 }

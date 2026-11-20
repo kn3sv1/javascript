@@ -14,6 +14,10 @@ export function getMediaForm(req, res) {
 
 export async function getFilesFromUploads(req, res) {
   try {
+    // Read ?name=... from the URL, e.g. /api/media?name=gr
+    const url = new URL(req.url, `http://${req.headers.host}`);
+    const nameFilter = (url.searchParams.get("name") ?? "").toLowerCase();
+
     // withFileTypes: true gives objects that can tell files from folders
     const entries = await fs.promises.readdir(uploadsDir, {
       withFileTypes: true,
@@ -22,6 +26,9 @@ export async function getFilesFromUploads(req, res) {
     const files = entries
       // keep real files only: skip folders and unfinished "tmp-" uploads
       .filter((entry) => entry.isFile() && !entry.name.startsWith("tmp-"))
+      // keep files whose name starts with the filter (ignoring upper/lower case);
+      // an empty filter matches every file, because "abc".startsWith("") is true
+      .filter((entry) => entry.name.toLowerCase().startsWith(nameFilter))
       // same shape as the upload response
       .map((entry) => ({
         file_name: entry.name,
